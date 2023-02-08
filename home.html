@@ -8,7 +8,287 @@
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Megaphone</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <main class="container mt-5">
+      <section class="row">
+        <aside class="col-4">
+          <!-- <aside class="col-6 position-fixed top-0 start-0"> -->
+          <h2 class="mb-3">Sticky sidebar</h2>
+          <!--  -->
+          <div>
+            <img class="rounded-circle col-1" src="..." />
+            <span class="ps-2 h3">My profile</span>
+          </div>
+          <hr class="col-6" />
+          <div>
+            <img class="rounded-circle col-1" src="..." />
+            <span class="ps-2 h3">Following</span>
+          </div>
+          <div class="d-flex">
+            <div>
+              <img class="rounded-circle col-10 col-sm-6" src="..." />
+              <!-- <p class="">Bob</p> -->
+            </div>
+            <div>
+              <img class="rounded-circle col-10 col-sm-6" src="..." />
+              <!-- <p>Fred</p> -->
+            </div>
+            <div>
+              <img class="rounded-circle col-10 col-sm-6" src="..." />
+              <!-- <p>Fritz</p> -->
+            </div>
+            <div>
+              <img class="rounded-circle col-10 col-sm-6" src="..." />
+              <!-- <p>Nita</p> -->
+            </div>
+            <div>
+              <img class="rounded-circle col-10 col-sm-6" src="..." />
+              <!-- <p>Anita</p> -->
+            </div>
+            <div>
+              <img class="rounded-circle col-10 col-sm-6" src="..." />
+              <!-- <p>Rita</p> -->
+            </div>
+          </div>
+          <hr class="col-6" />
+          <div>
+            <img class="rounded-circle col-1" src="..." />
+            <span class="ps-2 h3">Etc</span>
+          </div>
+          <hr class="col-6" />
+          <div>
+            <img class="rounded-circle col-1" src="..." />
+            <span class="ps-2 h3">Etc</span>
+          </div>
+          <hr class="col-6" />
+        </aside>
+        <section class="col-8">
+          <!-- <section class="col-6 position-absolute top-0 end-0"> -->
+          <h2 class="mb-3">Scrollable</h2>
+          <!--  -->
+          <h3>Create post</h3>
+          <form>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Write something...</label
+              >
+              <textarea
+                class="form-control mb-3"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+              <button type="submit" class="btn btn-primary col-4">
+                Post to wall
+              </button>
+            </div>
+          </form>
+          <article>
+            <h3>Wall posts</h3>
+            <div class="card mb-3">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Post title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <div class="d-flex">
+                  <div>
+                    <img class="rounded-circle col-1" src="..." />
+                    <span class="ps-2">
+                      Lightning McQueen
+                      <i class="bi bi-heart btn link-primary text-muted"></i>
+                      <i class="bi bi-share btn link-primary text-muted"></i>
+                      <i
+                        class="bi bi-chat-left btn link-primary text-muted"
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Post title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <div class="d-flex">
+                  <div>
+                    <img class="rounded-circle col-1" src="..." />
+                    <span class="ps-2">
+                      Lightning McQueen
+                      <i class="bi bi-heart btn link-primary text-muted"></i>
+                      <i class="bi bi-share btn link-primary text-muted"></i>
+                      <i
+                        class="bi bi-chat-left btn link-primary text-muted"
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Post title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <div class="d-flex">
+                  <div>
+                    <img class="rounded-circle col-1" src="..." />
+                    <span class="ps-2">
+                      Lightning McQueen
+                      <i class="bi bi-heart btn link-primary text-muted"></i>
+                      <i class="bi bi-share btn link-primary text-muted"></i>
+                      <i
+                        class="bi bi-chat-left btn link-primary text-muted"
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Post title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <div class="d-flex">
+                  <div>
+                    <img class="rounded-circle col-1" src="..." />
+                    <span class="ps-2">
+                      Lightning McQueen
+                      <i class="bi bi-heart btn link-primary text-muted"></i>
+                      <i class="bi bi-share btn link-primary text-muted"></i>
+                      <i
+                        class="bi bi-chat-left btn link-primary text-muted"
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-3">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Post title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <div class="d-flex">
+                  <div>
+                    <img class="rounded-circle col-1" src="..." />
+                    <span class="ps-2">
+                      Lightning McQueen
+                      <i class="bi bi-heart btn link-primary text-muted"></i>
+                      <i class="bi bi-share btn link-primary text-muted"></i>
+                      <i
+                        class="bi bi-chat-left btn link-primary text-muted"
+                      ></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!--  -->
+        </section>
+      </section>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
