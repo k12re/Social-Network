@@ -17,13 +17,17 @@
     <link
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
     <title>Megaphone Social | Profile</title>
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">MegaPhone</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -39,9 +43,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -49,19 +50,12 @@
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Dropdown
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Logout</a>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -95,7 +89,7 @@
                     style="width: 150px; z-index: 1" />
                   <button
                     type="button"
-                    class="btn btn-outline-dark"
+                    class="btn btn-outline-primary"
                     data-mdb-ripple-color="dark"
                     style="z-index: 1">
                     Edit profile
@@ -122,38 +116,36 @@
                 <div class="row g-2">
                   <div class="col-lg-6">
                     <div class="p-2">
-                      <p class="lead fw-normal mb-1">Details</p>
+                      <p class="p-4 ps-4 lead fw-normal mb-1">Details</p>
                       <div class="p-4" style="background-color: #f8f9fa">
                         <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-0">some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-0">some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-0">some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-0">some shit</p>
+                      </div>
+                    </div>
+                    <div class="p-2">
+                      <p class="p-4 ps-4 lead fw-normal mb-1">Followers</p>
+                      <div class="p-4" style="background-color: #f8f9fa">
                         <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-0">some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
+                      </div>
+                    </div>
+                    <div class="p-2">
+                      <p class="p-4 ps-4 lead fw-normal mb-1">Create Post</p>
+                      <div class="p-4" style="background-color: #f8f9fa">
+                        <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-0">some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-0">some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-0">some shit</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="p-2">
-                      <p class="lead fw-normal mb-1">Latest Posts</p>
+                      <p class="p-4 lead fw-normal mb-1">My Posts</p>
                       <div class="p-4" style="background-color: #f8f9fa">
                         <div class="card mb-3" style="max-width: 540px">
                           <div class="row g-0">
@@ -165,12 +157,23 @@
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5
+                                  class="card-title d-flex justify-content-between">
+                                  Card title
+                                  <i
+                                    class="bi bi-three-dots link-primary text-muted"></i>
+                                </h5>
                                 <p class="card-text">
                                   This is a wider card with supporting text
                                   below as a natural lead-in to additional
                                   content. This content is a little bit longer.
                                 </p>
+                                <span class="ps-2">
+                                  <i
+                                    class="bi bi-heart btn link-primary text-muted"></i>
+                                  <i
+                                    class="bi bi-chat-left btn link-primary text-muted"></i>
+                                </span>
                                 <p class="card-text">
                                   <small class="text-muted"
                                     >Last updated 3 mins ago</small
@@ -194,12 +197,23 @@
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5
+                                  class="card-title d-flex justify-content-between">
+                                  Card title
+                                  <i
+                                    class="bi bi-three-dots link-primary text-muted"></i>
+                                </h5>
                                 <p class="card-text">
                                   This is a wider card with supporting text
                                   below as a natural lead-in to additional
                                   content. This content is a little bit longer.
                                 </p>
+                                <span class="ps-2">
+                                  <i
+                                    class="bi bi-heart btn link-primary text-muted"></i>
+                                  <i
+                                    class="bi bi-chat-left btn link-primary text-muted"></i>
+                                </span>
                                 <p class="card-text">
                                   <small class="text-muted"
                                     >Last updated 3 mins ago</small
@@ -223,12 +237,23 @@
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                                <h5
+                                  class="card-title d-flex justify-content-between">
+                                  Card title
+                                  <i
+                                    class="bi bi-three-dots link-primary text-muted"></i>
+                                </h5>
                                 <p class="card-text">
                                   This is a wider card with supporting text
                                   below as a natural lead-in to additional
                                   content. This content is a little bit longer.
                                 </p>
+                                <span class="ps-2">
+                                  <i
+                                    class="bi bi-heart btn link-primary text-muted"></i>
+                                  <i
+                                    class="bi bi-chat-left btn link-primary text-muted"></i>
+                                </span>
                                 <p class="card-text">
                                   <small class="text-muted"
                                     >Last updated 3 mins ago</small
