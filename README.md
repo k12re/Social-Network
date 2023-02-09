@@ -44,8 +44,8 @@ npm run start
 
 ## Contact
 
-[My LinkedIn page](https://www.linkedin.com/in/benjaminmeldal/)
-[My LinkedIn page](https://www.linkedin.com/in/ken-thore-bøeng-b2b1b3ba/)
+- Benjamin Meldal [My LinkedIn page](https://www.linkedin.com/in/benjaminmeldal/)
+- Ken Thore Bøeng [My LinkedIn page](https://www.linkedin.com/in/ken-thore-bøeng-b2b1b3ba/)
 
 ## License
 
