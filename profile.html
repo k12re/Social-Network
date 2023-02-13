@@ -22,7 +22,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">MegaPhone</a>
+        <a class="navbar-brand" href="home.html">MegaPhone</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -36,24 +36,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="home.html"
+                >Home</a
+              >
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="#">Logout</a>
-                </li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Logout</a
+              >
             </li>
           </ul>
-          <form class="d-flex" role="search">
+          <form class="col-lg-4" role="search">
             <input
               class="form-control me-2"
               type="search"
@@ -98,6 +91,10 @@
                     <p class="mb-1 h5">0</p>
                     <p class="small text-muted mb-0">Followers</p>
                   </div>
+                  <div class="px-3">
+                    <p class="mb-1 h5">0</p>
+                    <p class="small text-muted mb-0">Following</p>
+                  </div>
                 </div>
               </div>
               <div class="container">
@@ -112,9 +109,13 @@
                         <p class="font-italic mb-1">Some shit</p>
                       </div>
                     </div>
-                    <form style="max-width: 540px">
+                    <form style="max-width: 730px">
                       <div>
                         <p class="pt-4 lead fw-normal mb-1">Create Post</p>
+                        <label
+                          for="exampleFormControlTextarea1"
+                          class="form-label">
+                        </label>
                         <textarea
                           class="form-control mb-3"
                           id="exampleFormControlTextarea1"
