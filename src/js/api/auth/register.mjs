@@ -1,10 +1,10 @@
-import * as constants from "../constants.mjs";
-import { registerFormListener } from "../handlers/registerFormListener.mjs";
+import * as constants from '../constants.mjs';
+import { registerFormListener } from '../handlers/registerFormListener.mjs';
 
 registerFormListener();
 
-const action = "/auth/register";
-const method = "POST";
+const action = '/auth/register';
+const method = 'POST';
 
 export async function registerUser(profile) {
   try {
@@ -15,7 +15,7 @@ export async function registerUser(profile) {
     const postData = {
       method,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(profile),
     };

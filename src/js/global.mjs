@@ -1,6 +1,10 @@
-const form = document.querySelector("#registerForm");
+import { setLoginFormListener } from './api/handlers/login.mjs';
 
-form.addEventListener("submit", (event) => {
+setLoginFormListener();
+
+const form = document.querySelector('#registerForm');
+
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   const registerForm = event.target;
 
