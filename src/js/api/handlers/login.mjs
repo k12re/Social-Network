@@ -1,10 +1,10 @@
-import { login } from '../auth/login.mjs';
+import { login } from "../auth/login.mjs";
 
 export function setLoginFormListener() {
-  const form = document.querySelector('#loginForm');
+  const form = document.querySelector("#loginForm");
 
   if (form) {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
       const form = event.target;
       const formData = new FormData(form);
