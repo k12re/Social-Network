@@ -1,7 +1,7 @@
 import { API_SOCIAL_URL } from "../constants.mjs";
 
 const action = "/auth/login";
-const method = "post";
+const method = "POST";
 
 export async function login(profile) {
   const loginURL = API_SOCIAL_URL + action;
