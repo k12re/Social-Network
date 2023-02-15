@@ -1,10 +1,13 @@
-const form = document.querySelector("#registerForm");
+import { setLoginFormListener } from './api/handlers/login.mjs';
+import { registerFormListener } from './api/handlers/registerFormListener.mjs';
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const registerForm = event.target;
+// setLoginFormListener();
+// registerFormListener();
 
-  const formData = new FormData(registerForm);
-  const profile = Object.fromEntries(formData.entries());
-  console.log(profile);
-});
+const path = location.pathname;
+
+if (path === '/login/') {
+  setLoginFormListener();
+} else if (path === '/register/') {
+  registerFormListener();
+}
