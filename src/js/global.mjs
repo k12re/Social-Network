@@ -1,13 +1,13 @@
-import { setLoginFormListener } from './api/handlers/login.mjs';
-import { registerFormListener } from './api/handlers/registerFormListener.mjs';
+import { setLoginFormListener } from "./api/handlers/login.mjs";
+import { registerFormListener } from "./api/handlers/registerFormListener.mjs";
 
 // setLoginFormListener();
 // registerFormListener();
 
 const path = location.pathname;
 
-if (path === '/login/') {
+if (path === "/profile/login/") {
   setLoginFormListener();
-} else if (path === '/register/') {
+} else if (path === "/profile/register/") {
   registerFormListener();
 }
