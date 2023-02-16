@@ -22,15 +22,15 @@ if (path === "/index.html") {
 async function testTemplate() {
   const posts = await postFetch.getPosts();
   const post = posts[45];
-  const container = document.querySelector("#card-container");
+  const container = document.querySelector("#post-container");
   renderPostTemplate(post, container);
 }
 
-// testTemplate();
+testTemplate();
 
 async function testTemplates() {
   const posts = await postFetch.getPosts();
-  const container = document.querySelector("#card-container");
+  const container = document.querySelector("#posts-container");
   templates.renderPostTemplates(posts, container);
 }
 
