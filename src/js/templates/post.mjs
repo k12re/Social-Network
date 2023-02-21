@@ -20,21 +20,47 @@
 //   return post;
 // }
 
+const postContainer = document.querySelector("#post-wall");
+
 export function postTemplate(postData) {
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
+
   clone.querySelector("h5").innerText = postData.title;
+
+  // const postTitle = clone.querySelector(".title-text");
+  // postTitle.innerText = postData.title;
+
+  const img = clone.querySelector("img");
+  img.src = postData.media;
 
   const bodyText = clone.querySelector(".body-text");
   bodyText.innerText = postData.body;
 
-  document.body.append(clone);
+  const dateText = clone.querySelector(".date-text");
+  dateText.innerText = `Updated ${postData.updated.substring(0, 10)}`;
+
+  // const tagsText = clone.querySelector(".tags-text");
+  // tagsText.innerText = postData.tags[0];
+
+  // console.log(postData.tags);
+
+  // const authorName = clone.querySelector(".username");
+  // authorName.innerText = postData._author;
+
+  // console.log(postData._author);
+
+  const updatePost = clone.querySelector(".update-post");
+  updatePost.href = `/post/?id=${postData.id}`;
+
+  postContainer.append(clone);
 
   // return post;
 }
 
 export function renderPostTemplate(postData, parent) {
   document.body.append(postTemplate(postData));
+  console.log(postData);
 }
 
 export function renderPostTemplates(postDataList, parent) {
