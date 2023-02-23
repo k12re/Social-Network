@@ -40,15 +40,16 @@ export function postTemplate(postData) {
   const dateText = clone.querySelector(".date-text");
   dateText.innerText = `Updated ${postData.updated.substring(0, 10)}`;
 
-  // const tagsText = clone.querySelector(".tags-text");
-  // tagsText.innerText = postData.tags[0];
+  const tagsText = clone.querySelector(".tags-text");
+  tagsText.innerText = postData.tags[0];
 
   // console.log(postData.tags);
 
-  // const authorName = clone.querySelector(".username");
-  // authorName.innerText = postData._author;
+  const avatarImg = clone.querySelector("#avatar-img");
+  avatarImg.src = postData.author.avatar;
 
-  // console.log(postData._author);
+  const authorName = clone.querySelector("#username");
+  authorName.innerText = postData.author.name;
 
   const updatePost = clone.querySelector(".update-post");
   updatePost.href = `/post/?id=${postData.id}`;
