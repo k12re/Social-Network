@@ -108,12 +108,24 @@
           </div>
           <hr class="col-8" />
         </aside>
-        <section class="col-8 offset-4" id="post-container">
+        <section
+          class="col-8 offset-4"
+          id="post-container"
+          style="max-width: 540px"
+        >
           <!-- <section class="col-6 position-absolute top-0 end-0"> -->
           <!-- <h2 class="mb-3">Scrollable</h2> -->
           <!--  -->
-          <h3>Update post</h3>
-          <form id="updatePost" style="max-width: 540px">
+          <span class="d-flex justify-content-between"
+            ><h3>Update post</h3>
+            <i
+              class="bi bi-trash3 btn link-primary text-muted"
+              id="delete-post"
+            >
+              Delete post</i
+            ></span
+          >
+          <form id="updatePost">
             <div>
               <label for="post-title" class="form-label"></label>
               <input
