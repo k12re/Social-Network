@@ -7,10 +7,8 @@ const action = "/posts";
 const method = "post";
 const commentEndpoint = "/comment";
 
-export async function commentPost(id) {
-  const commentPostUrl = `${API_SOCIAL_URL}${action}/${id}${commentEndpoint}`;
-
-  console.log(id);
+export async function commentPost(postId) {
+  const commentPostUrl = `${API_SOCIAL_URL}${action}/${postId}${commentEndpoint}`;
 
   const response = await authFetch(commentPostUrl, {
     method,
