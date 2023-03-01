@@ -29,12 +29,6 @@ export function commentPostTemplate(postData) {
   authorName.innerText = postData.author.name;
   authorName.href = `/profiles/${postData.author.name}?`;
 
-  // const commentPost = clone.querySelector(".comment-post");
-  // commentPost.href = `/post/?id=${postData.id}/comment`;
-
-  // const updatePost = clone.querySelector(".update-post");
-  // updatePost.href = `/post/?id=${postData.id}`;
-
   postContainer.append(clone);
 
   return post;
@@ -70,7 +64,7 @@ async function testTemplate() {
 testTemplate();
 
 async function commentTestTemplate() {
-  const posts = await postFetch.getPosts();
+  const posts = await postFetch.getPost();
   const post = posts.pop().comments;
   console.log(post);
   console.log(posts);
