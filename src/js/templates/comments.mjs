@@ -50,28 +50,33 @@ function commentTemplate(postData) {
   commentContainer.append(clone);
 }
 
-async function testTemplate() {
-  const posts = await postFetch.getPosts();
-  const post = posts.pop();
-  const comment = posts.pop().comments;
-  //   console.log(post.comments);
-  //   console.log(posts);
-  //   console.log(comment);
-  //   const postcontainer = document.querySelector("#post-container");
+// async function postTemplateFetch() {
+//   const url = new URLSearchParams(window.location.search);
+//   postId = urlParams.get("id");
+//   const posts = await postFetch.getPost(id);
+//   const post = posts.id;
+//   //   const comment = posts.pop().comments;
+//   console.log(post.comments);
+//   console.log(posts);
+//   console.log(comment);
+//   const postcontainer = document.querySelector("#post-container");
+//   renderCommentPostTemplate(post, postContainer);
+//   renderCommentTemplate(post.comments, commentContainer);
+// }
+// postTemplateFetch();
+
+async function commentTemplateFetch() {
+  const urlParams = new URLSearchParams(window.location.search);
+  postId = urlParams.get("id");
+  const posts = await postFetch.getPost(postId);
+  const post = post.comments;
+  console.log(post);
+  console.log(posts);
+
   renderCommentPostTemplate(post, postContainer);
   renderCommentTemplate(post.comments, commentContainer);
 }
-testTemplate();
-
-async function commentTestTemplate() {
-  const posts = await postFetch.getPost();
-  const post = posts.pop().comments;
-  console.log(post);
-  console.log(posts);
-  //   const commentcontainer = document.querySelector("#comment-container");
-  renderCommentTemplate(post, commentContainer);
-}
-commentTestTemplate();
+commentTemplateFetch();
 
 function renderCommentPostTemplate(postData, parent) {
   document.body.append(commentPostTemplate(postData));
@@ -83,3 +88,4 @@ function renderCommentTemplate(postData, parent) {
   const commentElements = postData.map(commentTemplate);
   document.body.append(...commentElements);
 }
+renderCommentTemplate();
