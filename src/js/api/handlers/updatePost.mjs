@@ -12,7 +12,7 @@ export async function updatePostFormListener() {
     form.title.value = post.title;
     form.body.value = post.body;
     form.media.value = post.media;
-    // form.tags.value = post.tags;
+    // form.tags.value = post.tags.split(", ");
 
     form.addEventListener("submit", (event) => {
       event.preventDefault();

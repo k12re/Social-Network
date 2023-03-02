@@ -13,7 +13,7 @@ export async function getPosts() {
 }
 
 export async function getPost(id) {
-  const getPostUrl = `${API_SOCIAL_URL}${action}/${id}`;
+  const getPostUrl = `${API_SOCIAL_URL}${action}/${id}/?_author=true&_comments=true&_reactions=true`;
 
   const response = await authFetch(getPostUrl);
 

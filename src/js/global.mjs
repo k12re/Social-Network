@@ -3,6 +3,7 @@ import { registerFormListener } from "./api/handlers/registerFormListener.mjs";
 import { createPostFormListener } from "./api/handlers/createPost.mjs";
 import { updatePostFormListener } from "./api/handlers/updatePost.mjs";
 import { removePostListener } from "./api/handlers/deletePost.mjs";
+import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
 
 import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
@@ -20,11 +21,17 @@ if (path === "/index.html") {
   updatePostFormListener();
 } else if (path === "/posts/" || path === "/posts/index.html") {
   testTemplates();
-} else if (path === "/post/" || path === "/post/index.html") {
+} else if (
+  path === "/post/" ||
+  path === "/post/index.html" ||
+  path === "/post/comment" ||
+  path === "/post/comment/index.html"
+) {
   testTemplate();
 } else if (path === "/post/" || path === "/post/index.html") {
   removePostListener();
-}
+} else if (path === "/post/comment/" || path === "/post/comment/index.html")
+  commentPostFormListener();
 
 // post.createPost();
 // post.updatePost();
@@ -33,7 +40,7 @@ if (path === "/index.html") {
 // post.getPosts();
 
 async function testTemplate() {
-  const posts = await postFetch.getPosts();
+  const posts = await postFetch.getPost();
   const post = posts.id;
   const container = document.querySelector("#post-container");
   renderPostTemplate(post, container);
@@ -45,7 +52,7 @@ testTemplate();
 async function testTemplates() {
   const posts = await postFetch.getPosts();
   const container = document.querySelector("#posts-container");
-  templates.renderPostTemplates(posts, container);
+  renderPostTemplates(posts, container);
 }
 
 testTemplates();
