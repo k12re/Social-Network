@@ -31,7 +31,7 @@ export function commentPostTemplate(postData) {
 
   postContainer.append(clone);
 
-  return post;
+  //   return post;
 }
 
 function commentTemplate(postData) {
@@ -50,6 +50,37 @@ function commentTemplate(postData) {
   commentContainer.append(clone);
 }
 
+async function commentTemplateFetch() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get("id");
+  const post = await postFetch.getPost(postId);
+  const postComments = post.comments;
+
+  //   console.log(post);
+  //   console.log(postComments);
+
+  renderCommentPostTemplate(post, postContainer);
+  renderCommentTemplate(postComments, commentContainer);
+}
+
+commentTemplateFetch();
+
+function renderCommentPostTemplate(postData, parent) {
+  parent.innerHTML = "";
+  parent.append(commentPostTemplate(postData));
+}
+
+function renderCommentTemplate(postData, parent) {
+  const commentElements = postData.map(commentTemplate);
+  parent.innerHTML += "";
+  parent.append(...commentElements);
+}
+
+// renderCommentPostTemplate();
+// renderCommentTemplate();
+
+// ------------------UNUSED
+
 // async function postTemplateFetch() {
 //   const url = new URLSearchParams(window.location.search);
 //   postId = urlParams.get("id");
@@ -64,28 +95,3 @@ function commentTemplate(postData) {
 //   renderCommentTemplate(post.comments, commentContainer);
 // }
 // postTemplateFetch();
-
-async function commentTemplateFetch() {
-  const urlParams = new URLSearchParams(window.location.search);
-  postId = urlParams.get("id");
-  const posts = await postFetch.getPost(postId);
-  const post = post.comments;
-  console.log(post);
-  console.log(posts);
-
-  renderCommentPostTemplate(post, postContainer);
-  renderCommentTemplate(post.comments, commentContainer);
-}
-commentTemplateFetch();
-
-function renderCommentPostTemplate(postData, parent) {
-  document.body.append(commentPostTemplate(postData));
-  //   console.log(postData);
-}
-renderCommentPostTemplate();
-
-function renderCommentTemplate(postData, parent) {
-  const commentElements = postData.map(commentTemplate);
-  document.body.append(...commentElements);
-}
-renderCommentTemplate();

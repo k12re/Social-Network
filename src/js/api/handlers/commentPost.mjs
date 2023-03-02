@@ -13,6 +13,7 @@ export async function commentPostFormListener() {
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+
       const form = event.target;
       const formData = new FormData(form);
       const commentData = Object.fromEntries(formData.entries());
@@ -27,7 +28,7 @@ export async function commentPostFormListener() {
         method,
         body: JSON.stringify(commentData),
       });
-
+      location.reload();
       return await response.json();
     });
   }
