@@ -5,10 +5,12 @@ import { updatePostFormListener } from "./api/handlers/updatePost.mjs";
 import { removePostListener } from "./api/handlers/deletePost.mjs";
 import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
 // import { updateProfileMedia } from "./api/handlers/profileMedia.mjs";
+import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
+
 
 import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
-import { renderPostTemplate, renderPostTemplates } from "./templates/index.mjs";
+import { renderPostTemplates } from "./templates/index.mjs";
 
 const path = location.pathname;
 
@@ -22,7 +24,12 @@ if (path === "/index.html") {
   updatePostFormListener();
 } else if (path === "/posts/" || path === "/posts/index.html") {
   testTemplates();
-} else if (path === "/post/" || path === "/post/index.html") {
+} else if (
+  path === "/post/" ||
+  path === "/post/index.html" ||
+  path === "/post/comment" ||
+  path === "/post/comment/index.html"
+) {
   testTemplate();
 } else if (path === "/post/" || path === "/post/index.html") {
   removePostListener();
@@ -31,6 +38,8 @@ if (path === "/index.html") {
 } else if (path === "/profile/index.html") {
   updateProfileMedia();
 }
+} else if (path === "/post/comment/" || path === "/post/comment/index.html")
+  commentPostFormListener();
 
 // post.createPost();
 // post.updatePost();
@@ -38,20 +47,20 @@ if (path === "/index.html") {
 // post.getPost();
 // post.getPosts();
 
-async function testTemplate() {
-  const posts = await postFetch.getPosts();
-  const post = posts.id;
-  const container = document.querySelector("#post-container");
-  renderPostTemplate(post, container);
-  console.log(post.id);
-}
+// async function testTemplate() {
+//   const posts = await postFetch.getPost();
+//   const post = posts.id;
+//   const container = document.querySelector("#post-container");
+// renderPostTemplate(post, container);
+// console.log(post.id);
+// }
 
-testTemplate();
+// testTemplate();
 
 async function testTemplates() {
   const posts = await postFetch.getPosts();
-  const container = document.querySelector("#posts-container");
-  templates.renderPostTemplates(posts, container);
+  const container = document.querySelector("#post-wall");
+  renderPostTemplates(posts, container);
 }
 
 testTemplates();

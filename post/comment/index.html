@@ -19,6 +19,7 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <script src="/src/js/templates/comments.mjs" type="module" defer></script>
     <script src="/src/js/global.mjs" type="module" defer></script>
     <title>Document</title>
   </head>
@@ -65,11 +66,11 @@
         </div>
       </div>
     </nav>
-    <main>
+    <!-- <main>
       <div class="container" id="post-container">
-        <!--  -->
+
       </div>
-    </main>
+    </main> -->
     <main class="container mt-5">
       <section class="row">
         <aside class="col-4 ms-3 mt-5 pt-5 fixed-top">
@@ -110,32 +111,13 @@
         </aside>
         <section
           class="col-8 offset-4"
-          id="post-container"
           style="max-width: 540px"
         >
-          <!-- <section class="col-6 position-absolute top-0 end-0"> -->
-          <!-- <h2 class="mb-3">Scrollable</h2> -->
-          <!--  -->
-          <span class="d-flex justify-content-between"
-            ><h3>Update post</h3>
-            <i
-              class="bi bi-trash3 btn link-primary text-muted"
-              id="delete-post"
-            >
-              Delete post</i
-            ></span
-          >
-          <form id="updatePost">
-            <div>
-              <label for="post-title" class="form-label"></label>
-              <input
-                name="title"
-                type="text"
-                class="form-control"
-                id="post-title"
-                placeholder="Post title..."
-              />
-            </div>
+          <h3>Comment on post</h3>
+            <article id="post-container" class="mt-4">
+              <!-- Post to comment will be rendered here -->
+            </article>
+          <form id="commentPost">
             <div class="mb-3">
               <label for="post-body" class="form-label"></label>
               <textarea
@@ -143,32 +125,22 @@
                 class="form-control mb-3"
                 id="post-body"
                 rows="3"
-                placeholder="Write post content..."
+                placeholder="Write your comment..."
               ></textarea>
-              <div class="d-flex space-between">
-                <label for="media-url" class="form-label"></label>
-                <input
-                  name="media"
-                  type="url"
-                  class="form-control me-4"
-                  id="media-url"
-                  placeholder="Media url..."
-                />
-                <label for="tags" class="form-label"></label>
-                <input
-                  name="tags"
-                  type="text"
-                  class="form-control me-4"
-                  id="tags"
-                  placeholder="Tags..."
-                />
+              <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary col-4">
-                  Update Post
+                  Comment
                 </button>
               </div>
             </div>
           </form>
-          <!--  -->
+        </section>
+        <section class="col-8 offset-4">
+            <h3>Comments</h3>
+          </article>
+          <article id="comment-container" class="mt-4">
+            <!-- Comments will be rendered here -->
+          </article>
         </section>
       </section>
     </main>
@@ -190,23 +162,22 @@
                 <small class="text-muted date-text"></small>
               </p>
               <p class="card-text tags">
+                Tags:
                 <small class="text-muted tags-text"></small>
               </p>
               <div class="d-flex">
                 <div>
-                  <img
-                    class="rounded col-1"
-                    src=""
-                    style="width: 20px; height: 20px"
-                  />
-                  <span class="ps-2 username">
-                    <!-- Lightning McQueen -->
+                  <img class="rounded col-1" id="post-img" />
+                  <span>
+                    <img class="rounded-circle col-1" id="avatar-img" style="width: 20px; height: 20px"/>
+                    <a id="username" class="btn link-primary text-muted"></a>
+
                     <i
                       class="bi bi-heart btn link-primary text-muted react-heart"
                     ></i>
-                    <i
-                      class="bi bi-chat-left btn link-primary text-muted react-comment"
-                    ></i>
+                    <!-- <a
+                      class="bi bi-three-dots btn link-primary text-muted update-post"
+                    ></a> -->
                   </span>
                 </div>
               </div>
@@ -214,6 +185,19 @@
           </div>
         </div>
       </div>
+    </template>
+    <template  id="template-comment">
+        <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+                <div class="col-md-10">
+                    <span>
+                    <img class="rounded-circle col-1" id="avatar-img" style="width: 20px; height: 20px"/>
+                    <span id="username"></span>
+                    <p class="card-text body-text mt-2"></p>
+                    </span>
+                </div>
+            </div>
+        </div>
     </template>
   </body>
 </html>

@@ -135,15 +135,16 @@
                   type="url"
                   class="form-control me-4"
                   id="media-url"
-                  placeholder="Media url..." />
-                <!-- <label for="tags" class="form-label"></label>
+                  placeholder="Media url..."
+                />
+                <label for="tags" class="form-label"></label>
                 <input
                   name="tags"
                   type="text"
                   class="form-control me-4"
                   id="tags"
                   placeholder="Tags..."
-                /> -->
+                />
                 <button type="submit" class="btn btn-primary col-4">
                   Post to wall
                 </button>
@@ -151,8 +152,38 @@
             </div>
           </form>
           <article id="post-wall" class="mt-4">
-            <h3>Wall posts</h3>
-            <div class="card mb-3" style="max-width: 540px">
+            <span
+              class="d-flex justify-content-between mb-3"
+              style="max-width: 540px"
+              ><h3>Wall posts</h3>
+              <div class="dropdown">
+                <button
+                  class="btn link-primary text-muted dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Filter
+                  <!-- <i class="bi bi-funnel link-primary text-muted"></i> -->
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item sort-title" href="#"
+                      >Sort by Title</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item sort-author" href="#"
+                      >Sort by Author</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item sort-date" href="#">Sort by Date</a>
+                  </li>
+                </ul>
+              </div>
+            </span>
+            <!-- <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img
@@ -182,7 +213,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </article>
           <!--  -->
         </section>
@@ -208,20 +239,27 @@
                 <small class="text-muted date-text"></small>
               </p>
               <p class="card-text tags">
+                Tags:
                 <small class="text-muted tags-text"></small>
               </p>
               <div class="d-flex">
                 <div>
-                  <img class="rounded-circle col-1" id="post-img" />
+                  <img class="rounded col-1" id="post-img" />
                   <span>
                     <!-- Lightning McQueen -->
-                    <img class="rounded-circle col-1" id="avatar-img" />
-                    <span id="username"></span>
+                    <img
+                      class="rounded-circle col-1"
+                      id="avatar-img"
+                      style="width: 20px; height: 20px"
+                    />
+                    <a id="username" class="btn link-primary text-muted"></a>
 
                     <i
-                      class="bi bi-heart btn link-primary text-muted react-heart"></i>
-                    <i
-                      class="bi bi-chat-left btn link-primary text-muted react-comment"></i>
+                      class="bi bi-heart btn link-primary text-muted react-heart"
+                    ></i>
+                    <a
+                      class="bi bi-chat-left btn link-primary text-muted comment-post"
+                    ></a>
                     <a
                       class="bi bi-three-dots btn link-primary text-muted update-post"></a>
                   </span>

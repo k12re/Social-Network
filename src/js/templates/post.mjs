@@ -26,22 +26,25 @@ export function postTemplate(postData) {
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
 
-  clone.querySelector("h5").innerText = postData.title;
+  // clone.querySelector(".title-text").innerText = postData.title;
 
-  // const postTitle = clone.querySelector(".title-text");
-  // postTitle.innerText = postData.title;
+  const postTitle = clone.querySelector(".title-text");
+  postTitle.innerText = postData.title;
 
-  const img = clone.querySelector("img");
-  img.src = postData.media;
+  if (postData.media) {
+    const img = clone.querySelector("img");
+    img.src = postData.media;
+    img.alt = postData.title;
+  }
 
   const bodyText = clone.querySelector(".body-text");
   bodyText.innerText = postData.body;
 
   const dateText = clone.querySelector(".date-text");
-  dateText.innerText = `Updated ${postData.updated.substring(0, 10)}`;
+  dateText.innerText = `Updated: ${postData.updated.substring(0, 10)}`;
 
   const tagsText = clone.querySelector(".tags-text");
-  tagsText.innerText = postData.tags[0];
+  tagsText.innerText = postData.tags;
 
   // console.log(postData.tags);
 
@@ -50,22 +53,27 @@ export function postTemplate(postData) {
 
   const authorName = clone.querySelector("#username");
   authorName.innerText = postData.author.name;
+  authorName.href = `/profiles/${postData.author.name}?`;
+
+  const commentPost = clone.querySelector(".comment-post");
+  commentPost.href = `/post/comment/?id=${postData.id}`;
 
   const updatePost = clone.querySelector(".update-post");
   updatePost.href = `/post/?id=${postData.id}`;
 
   postContainer.append(clone);
 
-  // return post;
+  console.log(postData);
+  return clone;
 }
 
-export function renderPostTemplate(postData, parent) {
-  document.body.append(postTemplate(postData));
-  console.log(postData);
-}
+// export function renderPostTemplate(postData, parent) {
+// console.log(parent);
+// parent.append(postTemplate(postData));
+// }
 
 export function renderPostTemplates(postDataList, parent) {
+  // console.log(parent);
   const postElements = postDataList.map(postTemplate);
-  document.body.append(...postElements);
-  console.log(postDataList);
+  parent.append(...postElements);
 }
