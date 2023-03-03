@@ -1,25 +1,55 @@
-import { API_SOCIAL_URL } from "../constants.mjs";
-import * as storage from "../storage/index.mjs";
+import { apiPath } from "../constants.mjs";
+import { headers } from "../headers.mjs";
+import { save } from "../storage/index.mjs";
 
-const action = "/auth/login";
-const method = "POST";
+export async function loginFormListener() {
+  const form = document.querySelector("#loginForm");
 
-export async function login(profile) {
-  const loginURL = API_SOCIAL_URL + action;
-  const body = JSON.stringify(profile);
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-  const response = await fetch(loginURL, {
-    headers: {
-      "Content-type": "application/json",
-    },
-    method,
-    body,
+    const email = form.email.value;
+    const password = form.password.value;
+
+    try {
+      const response = await fetch(`${apiPath}/social/auth/login`, {
+        method: "POST",
+        headers: headers("application/json"),
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const profile = await response.json();
+        save("token", profile.accessToken);
+        delete profile.accessToken;
+        save("profile", profile);
+
+        window.location.href = `/posts/index.html`;
+
+        return profile;
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   });
-
-  const { accessToken, ...user } = await response.json();
-
-  storage.save("token", accessToken);
-  storage.save("profile", user);
-
-  window.location.pathname = "posts/index.html";
 }
+
+// export async function login(email, password) {
+//   const response = await fetch(`${apiPath}/social/auth/login`, {
+//     method: "post",
+//     body: JSON.stringify({ email, password }),
+//     headers: headers("application/json"),
+//   });
+
+//   if (response.ok) {
+//     const profile = await response.json();
+//     save("token", profile.accessToken);
+//     delete profile.accessToken;
+//     save("profile", profile);
+//     return profile;
+//   }
+
+//   throw new Error(response.statusText);
+// }

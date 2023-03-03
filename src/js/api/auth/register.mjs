@@ -1,5 +1,5 @@
 import * as constants from "../constants.mjs";
-import { registerFormListener } from "../handlers/registerFormListener.mjs";
+import { registerFormListener } from "../handlers/register.mjs";
 
 registerFormListener();
 
