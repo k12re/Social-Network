@@ -31,8 +31,11 @@ export function postTemplate(postData) {
   const postTitle = clone.querySelector(".title-text");
   postTitle.innerText = postData.title;
 
-  const img = clone.querySelector("img");
-  img.src = postData.media;
+  if (postData.media) {
+    const img = clone.querySelector("img");
+    img.src = postData.media;
+    img.alt = postData.title;
+  }
 
   const bodyText = clone.querySelector(".body-text");
   bodyText.innerText = postData.body;
@@ -60,16 +63,17 @@ export function postTemplate(postData) {
 
   postContainer.append(clone);
 
-  // return post;
+  console.log(postData);
+  return clone;
 }
 
-export function renderPostTemplate(postData, parent) {
-  document.body.append(postTemplate(postData));
-  console.log(postData);
-}
+// export function renderPostTemplate(postData, parent) {
+// console.log(parent);
+// parent.append(postTemplate(postData));
+// }
 
 export function renderPostTemplates(postDataList, parent) {
+  // console.log(parent);
   const postElements = postDataList.map(postTemplate);
-  document.body.append(...postElements);
-  console.log(postDataList);
+  parent.append(...postElements);
 }

@@ -140,14 +140,14 @@
                   id="media-url"
                   placeholder="Media url..."
                 />
-                <!-- <label for="tags" class="form-label"></label>
+                <label for="tags" class="form-label"></label>
                 <input
                   name="tags"
                   type="text"
                   class="form-control me-4"
                   id="tags"
                   placeholder="Tags..."
-                /> -->
+                />
                 <button type="submit" class="btn btn-primary col-4">
                   Post to wall
                 </button>
@@ -155,7 +155,37 @@
             </div>
           </form>
           <article id="post-wall" class="mt-4">
-            <h3>Wall posts</h3>
+            <span
+              class="d-flex justify-content-between mb-3"
+              style="max-width: 540px"
+              ><h3>Wall posts</h3>
+              <div class="dropdown">
+                <button
+                  class="btn link-primary text-muted dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Filter
+                  <!-- <i class="bi bi-funnel link-primary text-muted"></i> -->
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item sort-title" href="#"
+                      >Sort by Title</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item sort-author" href="#"
+                      >Sort by Author</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item sort-date" href="#">Sort by Date</a>
+                  </li>
+                </ul>
+              </div>
+            </span>
             <!-- <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">

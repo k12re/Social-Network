@@ -10,8 +10,13 @@ export async function createPost(postData) {
 
   const response = await authFetch(createPostUrl, {
     method,
-    body: JSON.stringify(postData),
+    body: JSON.stringify({
+      title: postData.title,
+      body: postData.body,
+      media: postData.media,
+      tags: postData.tags.split(", "),
+    }),
   });
-
+  console.log(postData);
   return await response.json();
 }

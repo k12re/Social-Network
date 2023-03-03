@@ -7,7 +7,7 @@ import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
 
 import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
-import { renderPostTemplate, renderPostTemplates } from "./templates/index.mjs";
+import { renderPostTemplates } from "./templates/index.mjs";
 
 const path = location.pathname;
 
@@ -39,19 +39,19 @@ if (path === "/index.html") {
 // post.getPost();
 // post.getPosts();
 
-async function testTemplate() {
-  const posts = await postFetch.getPost();
-  const post = posts.id;
-  const container = document.querySelector("#post-container");
-  renderPostTemplate(post, container);
-  console.log(post.id);
-}
+// async function testTemplate() {
+//   const posts = await postFetch.getPost();
+//   const post = posts.id;
+//   const container = document.querySelector("#post-container");
+// renderPostTemplate(post, container);
+// console.log(post.id);
+// }
 
-testTemplate();
+// testTemplate();
 
 async function testTemplates() {
   const posts = await postFetch.getPosts();
-  const container = document.querySelector("#posts-container");
+  const container = document.querySelector("#post-wall");
   renderPostTemplates(posts, container);
 }
 
