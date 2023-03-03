@@ -10,9 +10,11 @@ export function commentPostTemplate(postData) {
   const postTitle = clone.querySelector(".title-text");
   postTitle.innerText = postData.title;
 
-  const img = clone.querySelector("img");
-  img.src = postData.media;
-
+  if (postData.media) {
+    const img = clone.querySelector("img");
+    img.src = postData.media;
+    img.alt = postData.title;
+  }
   const bodyText = clone.querySelector(".body-text");
   bodyText.innerText = postData.body;
 
@@ -31,7 +33,7 @@ export function commentPostTemplate(postData) {
 
   postContainer.append(clone);
 
-  //   return post;
+  return clone;
 }
 
 function commentTemplate(postData) {
@@ -48,6 +50,8 @@ function commentTemplate(postData) {
   commentText.innerText = postData.body;
 
   commentContainer.append(clone);
+
+  return clone;
 }
 
 async function commentTemplateFetch() {
@@ -55,9 +59,6 @@ async function commentTemplateFetch() {
   const postId = urlParams.get("id");
   const post = await postFetch.getPost(postId);
   const postComments = post.comments;
-
-  //   console.log(post);
-  //   console.log(postComments);
 
   renderCommentPostTemplate(post, postContainer);
   renderCommentTemplate(postComments, commentContainer);
@@ -75,23 +76,3 @@ function renderCommentTemplate(postData, parent) {
   parent.innerHTML += "";
   parent.append(...commentElements);
 }
-
-// renderCommentPostTemplate();
-// renderCommentTemplate();
-
-// ------------------UNUSED
-
-// async function postTemplateFetch() {
-//   const url = new URLSearchParams(window.location.search);
-//   postId = urlParams.get("id");
-//   const posts = await postFetch.getPost(id);
-//   const post = posts.id;
-//   //   const comment = posts.pop().comments;
-//   console.log(post.comments);
-//   console.log(posts);
-//   console.log(comment);
-//   const postcontainer = document.querySelector("#post-container");
-//   renderCommentPostTemplate(post, postContainer);
-//   renderCommentTemplate(post.comments, commentContainer);
-// }
-// postTemplateFetch();

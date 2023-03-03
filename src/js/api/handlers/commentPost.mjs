@@ -11,18 +11,18 @@ export async function commentPostFormListener() {
   if (form) {
     const post = await getPost(postId);
 
+    const action = "/posts";
+    const method = "post";
+    const commentEndpoint = "/comment";
+
+    const commentPostUrl = `${API_SOCIAL_URL}${action}/${postId}${commentEndpoint}`;
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       const form = event.target;
       const formData = new FormData(form);
       const commentData = Object.fromEntries(formData.entries());
-
-      const action = "/posts";
-      const method = "post";
-      const commentEndpoint = "/comment";
-
-      const commentPostUrl = `${API_SOCIAL_URL}${action}/${postId}${commentEndpoint}`;
 
       const response = await authFetch(commentPostUrl, {
         method,

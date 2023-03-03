@@ -12,7 +12,12 @@ export async function updatePost(postData) {
 
   const response = await authFetch(updatePostUrl, {
     method,
-    body: JSON.stringify(postData),
+    body: JSON.stringify({
+      title: postData.title,
+      body: postData.body,
+      media: postData.media,
+      tags: postData.tags.split(", "),
+    }),
   });
   location.reload();
   return await response.json();
