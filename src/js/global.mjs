@@ -1,9 +1,12 @@
-import { setLoginFormListener } from "./api/handlers/login.mjs";
-import { registerFormListener } from "./api/handlers/registerFormListener.mjs";
+import { loginFormListener } from "./api/auth/login.mjs";
+import { registerFormListener } from "./api/handlers/register.mjs";
 import { createPostFormListener } from "./api/handlers/createPost.mjs";
 import { updatePostFormListener } from "./api/handlers/updatePost.mjs";
 import { removePostListener } from "./api/handlers/deletePost.mjs";
+import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
+// import { updateProfileMedia } from "./api/handlers/profileMedia.mjs";
 import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
+
 
 import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
@@ -12,7 +15,7 @@ import { renderPostTemplates } from "./templates/index.mjs";
 const path = location.pathname;
 
 if (path === "/index.html") {
-  setLoginFormListener();
+  loginFormListener();
 } else if (path === "/profile/register/") {
   registerFormListener();
 } else if (path === "/posts/" || path === "/posts/index.html") {
@@ -30,6 +33,11 @@ if (path === "/index.html") {
   testTemplate();
 } else if (path === "/post/" || path === "/post/index.html") {
   removePostListener();
+} else if (path === "/profile/edit" || path === "/profile/edit/index.html") {
+  setUpdateProfile();
+} else if (path === "/profile/index.html") {
+  updateProfileMedia();
+}
 } else if (path === "/post/comment/" || path === "/post/comment/index.html")
   commentPostFormListener();
 
