@@ -51,7 +51,12 @@ export function postTemplate(postData) {
   // console.log(postData.tags);
 
   const avatarImg = clone.querySelector("#avatar-img");
-  avatarImg.src = postData.author.avatar;
+  if (postData.author.avatar) {
+    avatarImg.src = postData.author.avatar;
+  } else {
+    avatarImg.src =
+      "https://images.unsplash.com/photo-1634324173063-909962333bca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80";
+  }
 
   const authorName = clone.querySelector("#username");
   authorName.innerText = postData.author.name;
