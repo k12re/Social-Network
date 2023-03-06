@@ -6,10 +6,13 @@ import { removePostListener } from "./api/handlers/deletePost.mjs";
 import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
 // import { updateProfileMedia } from "./api/handlers/profileMedia.mjs";
 import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
+
 import { profileTemplate } from "./templates/profile.mjs";
 import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
 import { renderPostTemplates } from "./templates/index.mjs";
+
+import { load } from "./api/storage/index.mjs";
 
 const path = location.pathname;
 
@@ -66,3 +69,10 @@ if (path === "/index.html") {
 // }
 
 // testTemplates();
+
+const profile = load("profile");
+
+const myProfileA = document.querySelector(".myProfileAside");
+const myProfileB = document.querySelector(".myProfileNav");
+myProfileA.href = `/profile/?name=${profile.name}`;
+myProfileB.href = `/profile/?name=${profile.name}`;

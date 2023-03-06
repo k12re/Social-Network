@@ -41,10 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="/profile/index.html"
+              <a class="nav-link active myProfileNav" aria-current="page"
                 >Profile</a
               >
             </li>
@@ -80,32 +77,34 @@
           <!--  -->
           <div class="btn">
             <!-- <img class="rounded-circle col-1" src="" /> -->
-            <span class="ps-2 h3"
-              ><i class="bi bi-person-circle link-primary pe-4"></i
-              >Profile</span
-            >
-          </div>
-          <hr class="col-8" />
-          <a class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
-            <span class="ps-2 h3"
-              ><i class="bi bi-people-fill link-primary pe-4"></i
-              >Following</span
-            >
-          </a>
-          <hr class="col-8" />
-          <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
-            <span class="ps-2 h3"
-              ><i class="bi bi-gear link-primary pe-4"></i>Settings</span
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none myProfileAside"
+              ><i class="bi bi-person-circle link-primary pe-4"></i>Profile</a
             >
           </div>
           <hr class="col-8" />
           <div class="btn">
             <!-- <img class="rounded-circle col-1" src="" /> -->
-            <span class="ps-2 h3"
-              ><i class="bi bi-box-arrow-right link-primary pe-4"></i
-              >Logout?</span
+            <a class="ps-2 h3 link-primary text-black text-decoration-none"
+              ><i class="bi bi-people-fill link-primary pe-4"></i>Following</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <!-- <img class="rounded-circle col-1" src="" /> -->
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none"
+              href="/profile/edit/index.html"
+              ><i class="bi bi-gear link-primary pe-4"></i>Settings</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <!-- <img class="rounded-circle col-1" src="" /> -->
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none"
+              href="/index.html"
+              ><i class="bi bi-box-arrow-right link-primary pe-4"></i>Logout</a
             >
           </div>
           <hr class="col-8" />
@@ -153,7 +152,7 @@
                   placeholder="Tags..."
                 />
                 <button type="submit" class="btn btn-primary col-4">
-                  Post to wall
+                  Create Post
                 </button>
               </div>
             </div>
