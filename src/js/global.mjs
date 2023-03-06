@@ -12,6 +12,8 @@ import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
 import { renderPostTemplates } from "./templates/index.mjs";
 
+import { load } from "./api/storage/index.mjs";
+
 const path = location.pathname;
 
 if (path === "/index.html") {
@@ -66,3 +68,10 @@ if (path === "/index.html") {
 // }
 
 // testTemplates();
+
+const profile = load("profile");
+
+const myProfileA = document.querySelector(".myProfileAside");
+const myProfileB = document.querySelector(".myProfileNav");
+myProfileA.href = `/profile/?name=${profile.name}`;
+myProfileB.href = `/profile/?name=${profile.name}`;
