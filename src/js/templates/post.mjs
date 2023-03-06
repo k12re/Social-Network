@@ -20,6 +20,8 @@
 //   return post;
 // }
 
+import { getPosts } from "../api/auth/posts/read.mjs";
+
 const postContainer = document.querySelector("#post-wall");
 
 export function postTemplate(postData) {
@@ -53,7 +55,7 @@ export function postTemplate(postData) {
 
   const authorName = clone.querySelector("#username");
   authorName.innerText = postData.author.name;
-  authorName.href = `/profiles/${postData.author.name}?`;
+  authorName.href = `/profile/?name=${postData.author.name}`;
 
   const commentPost = clone.querySelector(".comment-post");
   commentPost.href = `/post/comment/?id=${postData.id}`;
@@ -63,7 +65,7 @@ export function postTemplate(postData) {
 
   postContainer.append(clone);
 
-  console.log(postData);
+  // console.log(postData);
   return clone;
 }
 
@@ -77,3 +79,11 @@ export function renderPostTemplates(postDataList, parent) {
   const postElements = postDataList.map(postTemplate);
   parent.append(...postElements);
 }
+
+async function testTemplates() {
+  const posts = await getPosts();
+  const container = document.querySelector("#post-wall");
+  renderPostTemplates(posts, container);
+}
+
+testTemplates();

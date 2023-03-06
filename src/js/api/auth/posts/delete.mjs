@@ -6,9 +6,10 @@ const action = "/posts";
 const method = "delete";
 
 export async function removePost(id) {
-  if (!postData.id) {
+  if (!id) {
     throw new Error("Delete requires a postID");
   }
+
   const deletePostUrl = `${API_SOCIAL_URL}${action}/${id}`;
 
   const response = await authFetch(deletePostUrl, {
