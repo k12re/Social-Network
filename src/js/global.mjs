@@ -7,7 +7,6 @@ import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
 // import { updateProfileMedia } from "./api/handlers/profileMedia.mjs";
 import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
 import { profileTemplate } from "./templates/profile.mjs";
-
 import * as templates from "./templates/index.mjs";
 import * as postFetch from "./api/auth/posts/index.mjs";
 import { renderPostTemplates } from "./templates/index.mjs";
@@ -37,6 +36,7 @@ if (path === "/index.html") {
   setUpdateProfile();
 } else if (path === "/profile/edit/index.html") {
   updateProfileMedia();
+} else if (path === "/post/comment/" || path === "/post/comment/index.html")
 } else if (path === "/post/comment/" || path === "/post/comment/index.html") {
   commentPostFormListener();
 } else if (path === "/profile/" || path === "/profile/index.html") {
