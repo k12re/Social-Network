@@ -45,12 +45,6 @@ if (path === "/index.html") {
   profileTemplate();
 }
 
-// post.createPost();
-// post.updatePost();
-// post.removePost();
-// post.getPost();
-// post.getPosts();
-
 // async function testTemplate() {
 //   const posts = await postFetch.getPost();
 //   const post = posts.id;
