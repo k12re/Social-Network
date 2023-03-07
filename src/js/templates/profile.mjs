@@ -1,9 +1,6 @@
 import { getProfile } from "../api/profile/read.mjs";
 
 const profileContainer = document.querySelector("#profileContainer");
-// const profileName = document.querySelector("#profileName");
-// const profileAvatar = document.querySelector("#profileAvatar");
-// const profileBanner = document.querySelector("#profileBanner");
 
 export function profileTemplate(profileData) {
   const profileName = document.querySelector("#profileName");
@@ -20,8 +17,6 @@ export function profileTemplate(profileData) {
 
   const followingCount = document.querySelector(".following-count");
   followingCount.innerText = profileData._count.following;
-
-  //   return profileName;
 }
 
 async function profileTempFetch() {
@@ -30,15 +25,11 @@ async function profileTempFetch() {
   const profile = await getProfile(name);
   const profileOwner = profile;
 
-  //   console.log(profile);
-
   renderProfileTemp(profile, profileContainer);
-  console.log(profile);
 }
 
 profileTempFetch();
 
 function renderProfileTemp(profileData, parent) {
   parent.append(profileTemplate(profileData));
-  //   console.log(parent);
 }

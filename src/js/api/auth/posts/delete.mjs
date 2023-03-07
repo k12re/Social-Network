@@ -16,5 +16,9 @@ export async function removePost(id) {
     method,
   });
 
-  return await response.json();
+  if (response.ok) {
+    return await response.json();
+  }
+
+  alert("You don't have permission to delete this post");
 }

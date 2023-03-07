@@ -28,8 +28,6 @@ export function postTemplate(postData) {
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
 
-  // clone.querySelector(".title-text").innerText = postData.title;
-
   const postTitle = clone.querySelector(".title-text");
   postTitle.innerText = postData.title;
 
@@ -48,8 +46,6 @@ export function postTemplate(postData) {
   const tagsText = clone.querySelector(".tags-text");
   tagsText.innerText = postData.tags;
 
-  // console.log(postData.tags);
-
   const avatarImg = clone.querySelector("#avatar-img");
   if (postData.author.avatar) {
     avatarImg.src = postData.author.avatar;
@@ -65,22 +61,12 @@ export function postTemplate(postData) {
   const commentPost = clone.querySelector(".comment-post");
   commentPost.href = `/post/comment/?id=${postData.id}`;
 
-  const updatePost = clone.querySelector(".update-post");
-  updatePost.href = `/post/?id=${postData.id}`;
-
   postContainer.append(clone);
 
-  // console.log(postData);
   return clone;
 }
 
-// export function renderPostTemplate(postData, parent) {
-// console.log(parent);
-// parent.append(postTemplate(postData));
-// }
-
 export function renderPostTemplates(postDataList, parent) {
-  // console.log(parent);
   const postElements = postDataList.map(postTemplate);
   parent.append(...postElements);
 }
