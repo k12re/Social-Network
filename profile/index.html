@@ -8,21 +8,22 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
-      defer></script>
-      <script src="/src/js/templates/profile.mjs" type="module" defer></script>
+      defer
+    ></script>
+    <script src="/src/js/templates/profile.mjs" type="module" defer></script>
     <script src="/src/js/global.mjs" defer type="module"></script>
-
     <link
       rel="stylesheet"
-      href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <title>Megaphone Social | Profile</title>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/posts/index.html">MegaPhone</a>
@@ -33,14 +34,15 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link active"
+                class="nav-link active myProfileNav"
                 aria-current="page"
                 href="/posts/index.html"
                 >Home</a
@@ -57,46 +59,42 @@
               class="form-control me-2"
               type="search"
               placeholder="Search"
-              aria-label="Search" />
+              aria-label="Search"
+            />
           </form>
         </div>
       </div>
     </nav>
-
-    <!-- Main Content -->
     <section class="container">
       <div class="row h-100">
         <div class="d-flex justify-content-center align-items-center h-100">
           <div class="col">
             <div class="card">
-              <div id="profileContainer"
-                class="text-white d-flex flex-row">
-                <img id="profileBanner" src="" alt="Profile banner" class="img-fluid h-50 w-100">
-                <div class="ms-4 mt-5 d-flex flex-column position-fixed profile-thumb" style="width: 150px">
+              <div id="profileContainer" class="text-white d-flex flex-row">
+                <img
+                  id="profileBanner"
+                  src=""
+                  alt="Profile banner"
+                  class="img-fluid h-50 w-100"
+                />
+                <div
+                  class="ms-4 mt-5 d-flex flex-column position-fixed profile-thumb"
+                  style="width: 150px"
+                >
                   <img
                     id="profileAvatar"
                     src=""
                     alt="Generic placeholder image"
                     class="img-fluid img-thumbnail mt-4 mb-2"
-                    style="width: 150px; z-index: 10" />
-                  <input
-                    type="button"
-                    onclick="location.href='/profile/edit/index.html'"
-                    value="Edit profile"
-                    class="btn btn-outline-primary"
-                    data-mdb-ripple-color="dark"
-                    style="z-index: 1">
-                </input>
-                <!-- <h5 class="text-dark" id="profileName">Profile Name</h5> -->
-                </div>
-                <div class="ms-3" style="margin-top: 130px">
-                  
+                    style="width: 150px; z-index: 10"
+                  />
                 </div>
               </div>
               <div class="p-4 text-black" style="background-color: #f8f9fa">
-                <h5 class="text-dark justify-content-start" id="profileName">Profile Name</h5>
+                <h5 class="text-dark justify-content-start" id="profileName">
+                  Profile Name
+                </h5>
                 <div class="d-flex justify-content-end text-center py-1">
-                  
                   <div class="px-3">
                     <p class="mb-1 h5 follower-count">0</p>
                     <p class="small text-muted mb-0">Followers</p>
@@ -115,8 +113,6 @@
                       <div class="" style="background-color: #f8f9fa">
                         <p class="font-italic mb-1">Some shit</p>
                         <p class="font-italic mb-1">Some shit</p>
-                        <p class="font-italic mb-0">some shit</p>
-                        <p class="font-italic mb-1">Some shit</p>
                       </div>
                     </div>
                     <form style="max-width: 730px">
@@ -124,13 +120,15 @@
                         <p class="pt-4 lead fw-normal mb-1">Create Post</p>
                         <label
                           for="exampleFormControlTextarea1"
-                          class="form-label">
+                          class="form-label"
+                        >
                         </label>
                         <textarea
                           class="form-control mb-3"
                           id="exampleFormControlTextarea1"
                           rows="3"
-                          placeholder="Write here.."></textarea>
+                          placeholder="Write here.."
+                        ></textarea>
                         <div class="d-flex justify-content-end">
                           <button type="submit" class="btn btn-primary col-4">
                             Post
@@ -143,21 +141,28 @@
                     <div>
                       <p class="pt-4 lead fw-normal mb-1">My Posts</p>
                       <div>
-                        <div class="card mb-3" style="max-width: 730px"  id="post-wall">
+                        <div
+                          class="card mb-3"
+                          style="max-width: 730px"
+                          id="profile-post-wall"
+                        >
                           <div class="row g-0">
                             <div class="col-md-4">
                               <img
                                 src="/src/assets/images/unknown.png"
                                 class="img-fluid h-100 object-fit-cover rounded"
-                                alt="..." />
+                                alt="..."
+                              />
                             </div>
                             <div class="col-md-8">
                               <div class="card-body">
                                 <h5
-                                  class="card-title d-flex justify-content-between">
+                                  class="card-title d-flex justify-content-between"
+                                >
                                   Card title
                                   <i
-                                    class="bi bi-three-dots link-primary text-muted"></i>
+                                    class="bi bi-three-dots link-primary text-muted"
+                                  ></i>
                                 </h5>
                                 <p class="card-text">
                                   This is a wider card with supporting text
@@ -171,9 +176,11 @@
                                 </p>
                                 <span class="ps-2">
                                   <i
-                                    class="bi bi-heart btn link-primary text-muted"></i>
+                                    class="bi bi-heart btn link-primary text-muted"
+                                  ></i>
                                   <i
-                                    class="bi bi-chat-left btn link-primary text-muted"></i>
+                                    class="bi bi-chat-left btn link-primary text-muted"
+                                  ></i>
                                 </span>
                               </div>
                             </div>
@@ -181,7 +188,6 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -190,6 +196,54 @@
         </div>
       </div>
     </section>
-    
+    <template id="template-post">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded h-100 object-fit-cover"
+              alt=""
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title title-text"></h5>
+              <p class="card-text body-text"></p>
+              <p class="card-text">
+                <small class="text-muted date-text"></small>
+              </p>
+              <p class="card-text tags">
+                Tags:
+                <small class="text-muted tags-text"></small>
+              </p>
+              <div class="d-flex">
+                <div>
+                  <img class="rounded col-1" id="post-img" />
+                  <span>
+                    <img
+                      class="rounded-circle col-1"
+                      id="avatar-img"
+                      style="width: 20px; height: 20px"
+                    />
+                    <a id="username" class="btn link-primary text-muted"></a>
+
+                    <i
+                      class="bi bi-heart btn link-primary text-muted react-heart"
+                    ></i>
+                    <a
+                      class="bi bi-chat-left btn link-primary text-muted comment-post"
+                    ></a>
+                    <a
+                      class="bi bi-three-dots btn link-primary text-muted update-post"
+                    ></a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
   </body>
 </html>

@@ -20,10 +20,9 @@
       defer
     ></script>
     <script src="../src/js/global.mjs" type="module" defer></script>
-    <title>Document</title>
+    <title>Megaphone Social | Posts Page</title>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/posts/index.html">MegaPhone</a>
@@ -66,17 +65,10 @@
         </div>
       </div>
     </nav>
-
-    <!-- <div class="container" id="posts-container">
-      </div> -->
     <main class="container mt-5">
       <section class="row">
         <aside class="col-4 ms-3 mt-5 pt-5 fixed-top">
-          <!-- <aside class="col-6 position-fixed top-0 start-0"> -->
-          <!-- <h2 class="mb-3">Sticky sidebar</h2> -->
-          <!--  -->
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a
               class="ps-2 h3 link-primary text-black text-decoration-none myProfileAside"
               ><i class="bi bi-person-circle link-primary pe-4"></i>Profile</a
@@ -84,14 +76,12 @@
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a class="ps-2 h3 link-primary text-black text-decoration-none"
               ><i class="bi bi-people-fill link-primary pe-4"></i>Following</a
             >
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a
               class="ps-2 h3 link-primary text-black text-decoration-none"
               href="/profile/edit/index.html"
@@ -100,7 +90,6 @@
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a
               class="ps-2 h3 link-primary text-black text-decoration-none"
               href="/index.html"
@@ -110,9 +99,6 @@
           <hr class="col-8" />
         </aside>
         <section class="col-8 offset-4" id="posts-container">
-          <!-- <section class="col-6 position-absolute top-0 end-0"> -->
-          <!-- <h2 class="mb-3">Scrollable</h2> -->
-          <!--  -->
           <h3>Create post</h3>
           <form id="createPost" style="max-width: 540px">
             <div>
@@ -162,6 +148,7 @@
               class="d-flex justify-content-between mb-3"
               style="max-width: 540px"
               ><h3>Wall posts</h3>
+              <!-- Posts will be rendered here -->
               <div class="dropdown">
                 <button
                   class="btn link-primary text-muted dropdown-toggle"
@@ -170,7 +157,6 @@
                   aria-expanded="false"
                 >
                   Filter
-                  <!-- <i class="bi bi-funnel link-primary text-muted"></i> -->
                 </button>
                 <ul class="dropdown-menu">
                   <li>
@@ -189,45 +175,10 @@
                 </ul>
               </div>
             </span>
-            <!-- <div class="card mb-3" style="max-width: 540px">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img
-                    src=""
-                    class="img-fluid rounded h-100 object-fit-cover"
-                    alt="" />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Example Post</h5>
-                    <p class="card-text">This is hardcoded in html</p>
-                    <p class="card-text">
-                      <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
-                    <div class="d-flex">
-                      <div>
-                        <img class="rounded-circle col-1" src="" />
-                        <span class="ps-2">
-                          Lightning McQueen
-                          <i
-                            class="bi bi-heart btn link-primary text-muted"></i>
-                          <i
-                            class="bi bi-chat-left btn link-primary text-muted"></i>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </article>
-          <!--  -->
         </section>
       </section>
     </main>
-    <!-- <div class="container" id="posts-container">
-      </div> -->
-
     <template id="template-post">
       <div class="card mb-3" style="max-width: 540px">
         <div class="row g-0">
@@ -253,7 +204,6 @@
                 <div>
                   <img class="rounded col-1" id="post-img" />
                   <span>
-                    <!-- Lightning McQueen -->
                     <img
                       class="rounded-circle col-1"
                       id="avatar-img"
