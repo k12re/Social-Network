@@ -6,6 +6,7 @@ import { removePostListener } from "./api/handlers/deletePost.mjs";
 import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
 // import { updateProfileMedia } from "./api/handlers/profileMedia.mjs";
 import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
+import { searchPosts } from "./api/handlers/searchPosts.mjs";
 
 import { profileTemplate } from "./templates/profile.mjs";
 import * as templates from "./templates/index.mjs";
@@ -25,7 +26,7 @@ if (path === "/index.html") {
 } else if (path === "/post/" || path === "/post/index.html") {
   updatePostFormListener();
 } else if (path === "/posts/" || path === "/posts/index.html") {
-  testTemplates();
+  searchPosts();
 } else if (
   path === "/post/" ||
   path === "/post/index.html" ||

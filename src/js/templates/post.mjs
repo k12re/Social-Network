@@ -81,7 +81,7 @@ export function postTemplate(postData) {
 
 export function renderPostTemplates(postDataList, parent) {
   // console.log(parent);
-  const postElements = postDataList.map(postTemplate);
+  const postElements = postDataList.map(postTemplate, searchForm);
   parent.append(...postElements);
 }
 
