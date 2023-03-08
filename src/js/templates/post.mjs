@@ -22,6 +22,9 @@
 
 import { getPosts } from "../api/auth/posts/read.mjs";
 
+// test function
+import { getFilteredPosts } from "../api/handlers/tagsFilter.mjs";
+
 const postContainer = document.querySelector("#post-wall");
 
 export function postTemplate(postData) {
@@ -63,7 +66,7 @@ export function postTemplate(postData) {
 
   postContainer.append(clone);
 
-  // console.log(postData);
+  console.log(postData);
   return clone;
 }
 
@@ -72,10 +75,26 @@ export function renderPostTemplates(postDataList, parent) {
   parent.append(...postElements);
 }
 
+// test function
+export function renderFilteredPostTemplates(postDataList, parent) {
+  const filteredPostElements = postDataList.map(postTemplate);
+  parent.append(...filteredPostElements);
+}
+
 async function testTemplates() {
   const posts = await getPosts();
   const container = document.querySelector("#post-wall");
   renderPostTemplates(posts, container);
 }
 
+// test function
+async function testFilteredTemplates() {
+  const filteredposts = await getFilteredPosts();
+  const container = document.querySelector("#post-wall");
+  renderFilteredPostTemplates(filteredposts, container);
+}
+
 testTemplates();
+
+// test function
+testFilteredTemplates();
