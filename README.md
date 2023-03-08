@@ -1,5 +1,5 @@
 # Social Network project
-![image](https://user-images.githubusercontent.com/82838871/217823526-27bdcca6-36b3-4545-94db-4cc688baa9cf.png)
+![image](https://user-images.githubusercontent.com/82838871/223701901-9a4c072b-7d3e-451c-b17e-7ec8027faed4.png)
 
 
 
