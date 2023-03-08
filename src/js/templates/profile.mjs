@@ -19,13 +19,28 @@ export function profileTemplate(profileData) {
   followingCount.innerText = profileData._count.following;
 }
 
+export function profileDetails(profileData) {
+  const emailDetail = document.querySelector(".email-details");
+  emailDetail.innerText = profileData.email;
+
+  const PostsDetail = document.querySelector(".posts-details");
+  PostsDetail.innerText = profileData._count.posts;
+}
+
+function renderProfileDetails(profileData, parent) {
+  parent.append(profileDetails(profileData));
+}
+
 async function profileTempFetch() {
   const urlParams = new URLSearchParams(window.location.search);
   const name = urlParams.get("name");
   const profile = await getProfile(name);
   const profileOwner = profile;
 
+  console.log(profile);
+
   renderProfileTemp(profile, profileContainer);
+  renderProfileDetails(profile, profileContainer);
 }
 
 profileTempFetch();
