@@ -7,10 +7,20 @@ export function profileTemplate(profileData) {
   profileName.innerText = profileData.name;
 
   const profileAvatar = document.querySelector("#profileAvatar");
-  profileAvatar.src = profileData.avatar;
+  if (profileData.avatar) {
+    profileAvatar.src = profileData.avatar;
+  } else {
+    profileAvatar.src =
+      "https://images.unsplash.com/photo-1634324173063-909962333bca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80";
+  }
 
   const profileBanner = document.querySelector("#profileBanner");
-  profileBanner.src = profileData.banner;
+  if (profileData.banner) {
+    profileBanner.src = profileData.banner;
+  } else {
+    profileBanner.src =
+      "https://images.unsplash.com/photo-1617957718614-8c23f060c2d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80";
+  }
 
   const followerCount = document.querySelector(".follower-count");
   followerCount.innerText = profileData._count.followers;

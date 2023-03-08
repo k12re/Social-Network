@@ -63,6 +63,7 @@ export function postTemplate(postData) {
 
   postContainer.append(clone);
 
+  // console.log(postData);
   return clone;
 }
 

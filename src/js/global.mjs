@@ -16,7 +16,7 @@ import { load } from "./api/storage/index.mjs";
 
 const path = location.pathname;
 
-if (path === "/index.html") {
+if (path === "/" || path === "/index.html") {
   loginFormListener();
 } else if (path === "/profile/register/") {
   registerFormListener();

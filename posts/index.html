@@ -20,6 +20,11 @@
       defer
     ></script>
     <script src="../src/js/global.mjs" type="module" defer></script>
+    <script
+      src="../src/js/api/handlers/tagsFilter.mjs"
+      type="module"
+      defer
+    ></script>
     <title>Megaphone Social | Posts Page</title>
   </head>
   <body>
@@ -159,19 +164,27 @@
                   Filter
                 </button>
                 <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item sort-title" href="#"
+                  <li class="me-3">
+                    <label for="tags-filter" class="form-label"></label>
+                    <input
+                      name="tags"
+                      type="text"
+                      class="form-control mx-2"
+                      id="tags-filter"
+                      placeholder="Search Tags..."
+                    />
+                    <!-- <a class="dropdown-item sort-title" href="#"
                       >Sort by Title</a
-                    >
+                    > -->
                   </li>
-                  <li>
+                  <!-- <li>
                     <a class="dropdown-item sort-author" href="#"
                       >Sort by Author</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item sort-date" href="#">Sort by Date</a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </span>
