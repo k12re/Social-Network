@@ -12,8 +12,6 @@ export async function searchPosts(query) {
 
     const data = await response.json();
 
-    // console.log(data);
-
     if (response.ok) {
       const filteredPosts = data.filter((post) => {
         return (
@@ -71,9 +69,6 @@ export async function searchPosts(query) {
         dateText.innerText = `Updated: ${postData.updated.substring(0, 10)}`;
 
         postContainer.append(clone);
-
-        // console.log(postData);
-        // return clone;
       });
     } else {
       console.log(data.message);
@@ -83,57 +78,15 @@ export async function searchPosts(query) {
   }
 }
 
-const searchForm = document.querySelector("#searchForm");
+const path = location.pathname;
 
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (path === "/posts/" || path === "/posts/index.html") {
+  const searchForm = document.querySelector("#searchForm");
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const searchQuery = document.querySelector("#searchInput").value.trim();
+    const searchQuery = document.querySelector("#searchInput").value.trim();
 
-  searchPosts(searchQuery);
-});
-
-// export async function getPosts(posts) {
-
-//   // const response = await getPosts();
-//   // console.log(response);
-
-//   if (response.ok) {
-//     const filteredPosts = response.filter((post) => {
-//       return (
-//         post.title.toLowerCase().includes(posts.toLowerCase()) ||
-//         post.body.toLowerCase().includes(posts.toLowerCase()) ||
-//         post.tags.some((tag) =>
-//           tag.toLowerCase().includes(posts.toLowerCase())
-//         ) ||
-//         post.author.toLowerCase().includes(posts.toLowerCase())
-//       );
-//     });
-//     console.log(filteredPosts);
-//     const searchResults = document.querySelector("#searchResults");
-
-//     searchResults.innerHTML = "";
-
-//     filteredPosts.forEach((post) => {
-//       const li = document.createElement("li");
-//       const link = document.createElement("a");
-//       link.href = `/post/?id=${post.id}`;
-//       link.textContent = post.title;
-//       li.appendChild(link);
-//       searchResults.appendChild(li);
-//     });
-//   } else {
-//     console.error(response.message);
-//   }
-// }
-
-// export async function searchingForm() {
-//   const searchForm = document.querySelector("#searchForm");
-//   searchForm.addEventListener("submit", (event) => {
-//     event.preventDefault();
-
-//     const searchPost = document.querySelector("#searchInput").value.trim();
-
-//     getPosts(searchPost);
-//   });
-// }
+    searchPosts(searchQuery);
+  });
+}
