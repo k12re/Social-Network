@@ -35,3 +35,33 @@ export async function setUpdateProfile() {
     });
   }
 }
+
+// export async function updateProfileMedia() {
+//   try {
+//     const response = await authFetch(
+//       `${API_SOCIAL_URL}/profiles/${data.name}/media`,
+//       {
+//         method: "GET",
+//         headers: headers("application/json"),
+//       }
+//     );
+
+//     const data = await response.json();
+
+//     if (response.ok) {
+//       const profileName = document.querySelector("#profileName");
+//       const profileAvatar = document.querySelector("#profileAvatar");
+//       const profileBanner = document.querySelector("#profileBanner");
+
+//       profileName.textContent = data.name;
+//       profileAvatar.src = data.author.avatar;
+//       profileBanner.src = data.author.banner;
+
+//       return await response.json();
+//     } else {
+//       console.log(data);
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }

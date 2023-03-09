@@ -27,3 +27,17 @@ export async function getProfile(name) {
 
   return await response.json();
 }
+
+// export async function getProfile(name) {
+//   const response = await fetch(
+//     `${apiPath}/social/profiles/${name}?&_followers=true&_posts=true&_following=true`,
+//     {
+//       headers: headers(),
+//     }
+//   );
+//   if (response.ok) {
+//     return await response.json();
+//   }
+
+//   throw new Error(response.statusText);
+// }
