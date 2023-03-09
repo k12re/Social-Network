@@ -73,7 +73,7 @@ export async function searchPosts(query) {
         postContainer.append(clone);
 
         // console.log(postData);
-        return clone;
+        // return clone;
       });
     } else {
       console.log(data.message);
