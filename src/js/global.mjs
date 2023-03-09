@@ -5,9 +5,7 @@ import { updatePostFormListener } from "./api/handlers/updatePost.mjs";
 import { removePostListener } from "./api/handlers/deletePost.mjs";
 import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
 import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
-
 import { searchPosts } from "./api/handlers/searchPosts.mjs";
-
 import { profileTemplate } from "./templates/profile.mjs";
 import { profileFetch } from "./templates/profile.mjs";
 // import * as templates from "./templates/index.mjs";
@@ -43,7 +41,10 @@ if (path === "/" || path === "/index.html") {
 }
 
 const profile = load("profile");
+
 const myProfileA = document.querySelector(".myProfileAside");
 const myProfileB = document.querySelector(".myProfileNav");
-myProfileA.href = `/profile/?name=${profile.name}`;
-myProfileB.href = `/profile/?name=${profile.name}`;
+if (!path === "/" || "/index.html") {
+  myProfileA.href = `/profile/?name=${profile.name}`;
+  myProfileB.href = `/profile/?name=${profile.name}`;
+}
