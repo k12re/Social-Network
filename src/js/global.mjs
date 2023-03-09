@@ -37,8 +37,6 @@ if (path === "/" || path === "/index.html") {
 } else if (path === "/profile/edit/index.html") {
   updateProfileMedia();
 } else if (path === "/post/comment/" || path === "/post/comment/index.html") {
->>>>>>> new-login
-} else if (path === "/post/comment/" || path === "/post/comment/index.html") {
   commentPostFormListener();
 } else if (path === "/profile/" || path === "/profile/index.html") {
   profileFetch();

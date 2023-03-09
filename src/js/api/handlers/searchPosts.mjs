@@ -85,13 +85,15 @@ export async function searchPosts(query) {
 
 const searchForm = document.querySelector("#searchForm");
 
-searchForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (searchForm) {
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const searchQuery = document.querySelector("#searchInput").value.trim();
+    const searchQuery = document.querySelector("#searchInput").value.trim();
 
-  searchPosts(searchQuery);
-});
+    searchPosts(searchQuery);
+  });
+}
 
 // export async function getPosts(posts) {
 
