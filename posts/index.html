@@ -17,10 +17,14 @@
       crossorigin="anonymous"
       defer></script>
     <script src="../src/js/global.mjs" type="module" defer></script>
-    <title>Document</title>
+    <script
+      src="../src/js/api/handlers/tagsFilter.mjs"
+      type="module"
+      defer
+    ></script>
+    <title>Megaphone Social | Posts Page</title>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/posts/index.html">MegaPhone</a>
@@ -72,11 +76,7 @@
     <main class="container mt-5">
       <section class="row">
         <aside class="col-4 ms-3 mt-5 pt-5 fixed-top">
-          <!-- <aside class="col-6 position-fixed top-0 start-0"> -->
-          <!-- <h2 class="mb-3">Sticky sidebar</h2> -->
-          <!--  -->
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a
               class="ps-2 h3 link-primary text-black text-decoration-none myProfileAside"
               ><i class="bi bi-person-circle link-primary pe-4"></i>Profile</a
@@ -84,14 +84,12 @@
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a class="ps-2 h3 link-primary text-black text-decoration-none"
               ><i class="bi bi-people-fill link-primary pe-4"></i>Following</a
             >
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a
               class="ps-2 h3 link-primary text-black text-decoration-none"
               href="/profile/edit/index.html"
@@ -100,7 +98,6 @@
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <!-- <img class="rounded-circle col-1" src="" /> -->
             <a
               class="ps-2 h3 link-primary text-black text-decoration-none"
               href="/index.html"
@@ -110,9 +107,6 @@
           <hr class="col-8" />
         </aside>
         <section class="col-8 offset-4" id="posts-container">
-          <!-- <section class="col-6 position-absolute top-0 end-0"> -->
-          <!-- <h2 class="mb-3">Scrollable</h2> -->
-          <!--  -->
           <h3>Create post</h3>
           <form id="createPost" style="max-width: 540px">
             <div>
@@ -153,6 +147,40 @@
               </div>
             </div>
           </form>
+          <span
+            class="d-flex justify-content-between mb-3"
+            style="max-width: 540px"
+            ><h3>Wall posts</h3>
+            <!-- Posts will be rendered here -->
+            <div class="dropdown">
+              <button
+                class="btn link-primary text-muted dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filter
+              </button>
+              <ul class="dropdown-menu">
+                <li class="me-3">
+                  <form id="tags-filter">
+                    <label for="tags-filter" class="form-label"></label>
+                    <input
+                      name="tags"
+                      type="text"
+                      class="form-control mx-2 mb-2"
+                      id="tag-query"
+                      placeholder="Search Tags..."
+                    />
+                    <button type="submit" class="btn btn-primary w-100 mx-2">
+                      Search
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </span>
+          <article id="post-wall" class="mt-4"></article>
           <article id="post-wall" class="mt-4">
             <span
               class="d-flex justify-content-between mb-3"
@@ -220,9 +248,6 @@
         </section>
       </section>
     </main>
-    <!-- <div class="container" id="posts-container">
-      </div> -->
-
     <template id="template-post">
       <div class="card mb-3" style="max-width: 540px">
         <div class="row g-0">
@@ -247,12 +272,14 @@
                 <div>
                   <img class="rounded col-1" id="post-img" />
                   <span>
-                    <!-- Lightning McQueen -->
                     <img
                       class="rounded-circle col-1"
                       id="avatar-img"
                       style="width: 20px; height: 20px" />
                     <a id="username" class="btn link-primary text-muted"></a>
+                    <a
+                      class="bi bi-chat-left btn link-primary text-muted comment-post"
+                    ></a>
 
                     <i
                       class="bi bi-heart btn link-primary text-muted react-heart"></i>
