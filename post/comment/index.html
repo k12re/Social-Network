@@ -21,9 +21,10 @@
     ></script>
     <script src="/src/js/templates/comments.mjs" type="module" defer></script>
     <script src="/src/js/global.mjs" type="module" defer></script>
-    <title>Megaphone Social | Post Page</title>
+    <title>Document</title>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-primary">
       <div class="container-fluid">
         <a class="navbar-brand" href="/posts/index.html">MegaPhone</a>
@@ -42,7 +43,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link active myProfileNav"
+                class="nav-link active"
                 aria-current="page"
                 href="/profile/index.html"
                 >Profile</a
@@ -65,35 +66,45 @@
         </div>
       </div>
     </nav>
+    <!-- <main>
+      <div class="container" id="post-container">
+
+      </div>
+    </main> -->
     <main class="container mt-5">
       <section class="row">
         <aside class="col-4 ms-3 mt-5 pt-5 fixed-top">
+          <!-- <aside class="col-6 position-fixed top-0 start-0"> -->
+          <!-- <h2 class="mb-3">Sticky sidebar</h2> -->
+          <!--  -->
           <div class="btn">
-            <a
-              class="ps-2 h3 link-primary text-black text-decoration-none myProfileAside"
-              ><i class="bi bi-person-circle link-primary pe-4"></i>Profile</a
+            <img class="rounded-circle col-1" src="" />
+            <span class="ps-2 h3"
+              ><i class="bi bi-person-circle link-primary pe-4"></i
+              >Profile</span
             >
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <a class="ps-2 h3 link-primary text-black text-decoration-none"
-              ><i class="bi bi-people-fill link-primary pe-4"></i>Following</a
+            <img class="rounded-circle col-1" src="" />
+            <span class="ps-2 h3"
+              ><i class="bi bi-people-fill link-primary pe-4"></i
+              >Following</span
             >
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <a
-              class="ps-2 h3 link-primary text-black text-decoration-none"
-              href="/profile/edit/index.html"
-              ><i class="bi bi-gear link-primary pe-4"></i>Settings</a
+            <img class="rounded-circle col-1" src="" />
+            <span class="ps-2 h3"
+              ><i class="bi bi-gear link-primary pe-4"></i>Settings</span
             >
           </div>
           <hr class="col-8" />
           <div class="btn">
-            <a
-              class="ps-2 h3 link-primary text-black text-decoration-none"
-              href="/index.html"
-              ><i class="bi bi-box-arrow-right link-primary pe-4"></i>Logout</a
+            <img class="rounded-circle col-1" src="" />
+            <span class="ps-2 h3"
+              ><i class="bi bi-box-arrow-right link-primary pe-4"></i
+              >Logout?</span
             >
           </div>
           <hr class="col-8" />
@@ -164,6 +175,9 @@
                     <i
                       class="bi bi-heart btn link-primary text-muted react-heart"
                     ></i>
+                    <!-- <a
+                      class="bi bi-three-dots btn link-primary text-muted update-post"
+                    ></a> -->
                   </span>
                 </div>
               </div>
@@ -177,7 +191,7 @@
             <div class="row g-0">
                 <div class="col-md-10">
                     <span>
-                    <img class="rounded-circle col-1 avatar-img" style="width: 20px; height: 20px"/>
+                    <img class="rounded-circle col-1" id="avatar-img" style="width: 20px; height: 20px"/>
                     <span id="username"></span>
                     <p class="card-text body-text mt-2"></p>
                     </span>

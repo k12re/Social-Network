@@ -16,8 +16,5 @@ export async function removePost(id) {
     method,
   });
 
-  if (response.ok) {
-    alert("Delete is successful");
-    return await response.json();
-  }
+  return await response.json();
 }
