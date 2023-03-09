@@ -18,7 +18,7 @@ export async function getProfiles() {
 
 export async function getProfile(name) {
   if (!name) {
-    // throw new Error("Get requires a name");
+    throw new Error("Get requires a name");
   }
 
   const getProfileURL = `${API_SOCIAL_URL}${action}/${name}?_following=true&_followers=true`;

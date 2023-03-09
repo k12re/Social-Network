@@ -1,6 +1,7 @@
 import { getProfile } from "../api/profile/read.mjs";
 
 const profileContainer = document.querySelector("#profileContainer");
+const path = location.pathname;
 
 export function profileTemplate(profileData) {
   const profileName = document.querySelector("#profileName");
@@ -38,23 +39,26 @@ export function profileDetails(profileData) {
 }
 
 function renderProfileDetails(profileData, parent) {
-  parent.append(profileDetails(profileData));
+  if (parent) {
+    parent.append(profileDetails(profileData));
+  }
 }
 
-async function profileTempFetch() {
+export async function profileFetch() {
   const urlParams = new URLSearchParams(window.location.search);
   const name = urlParams.get("name");
   const profile = await getProfile(name);
-  const profileOwner = profile;
 
-  console.log(profile);
-
-  renderProfileTemp(profile, profileContainer);
+  renderProfile(profile, profileContainer);
   renderProfileDetails(profile, profileContainer);
 }
 
-profileTempFetch();
+if (path === "/profile/") {
+  profileFetch();
+}
 
-function renderProfileTemp(profileData, parent) {
-  parent.append(profileTemplate(profileData));
+function renderProfile(profileData, parent) {
+  if (parent) {
+    parent.append(profileTemplate(profileData));
+  }
 }

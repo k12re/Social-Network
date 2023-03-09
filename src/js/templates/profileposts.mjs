@@ -40,10 +40,10 @@ export function renderPostTemplates(postDataList, parent) {
   parent.append(...postElements);
 }
 
-async function testTemplates() {
+async function profilePostTemplates() {
   const posts = await profilePosts();
   const container = document.querySelector("#profile-post-wall");
   renderPostTemplates(posts, container);
 }
 
-testTemplates();
+profilePostTemplates();

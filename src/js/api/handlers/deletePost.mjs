@@ -11,8 +11,6 @@ export async function removePostListener() {
   if (path === "/post/" && id) {
     deleteButton.addEventListener("click", () => {
       removePost(id);
-      // location.reload();
-      // window.location.replace("/posts/");
     });
   }
 }
