@@ -1,34 +1,11 @@
-//Example for createElement
-// export function postTemplate(postData) {
-//   const post = document.createElement("div");
-//   post.classList.add("title", "card", "mb-3");
-//   post.innerText = postData.title;
-
-//   if (postData.body) {
-//     const body = document.createElement("div");
-//     body.classList.add("body-text");
-//     body.innerText = postData.body;
-//     post.append(body);
-//   } else if (postData.media) {
-//     const img = document.createElement("img");
-//     img.classList.add("img-fluid", "rounded", "h-100", "object-fit-cover");
-//     img.src = postData.media;
-//     img.alt = postData.title;
-//     post.append(img);
-//   }
-
-//   return post;
-// }
-
-import { getPosts } from "../api/auth/posts/read.mjs";
+import { getFilteredPosts } from "../api/handlers/tagsFilter.mjs";
 
 const postContainer = document.querySelector("#post-wall");
+const path = location.pathname;
 
 export function postTemplate(postData) {
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
-
-  // clone.querySelector(".title-text").innerText = postData.title;
 
   const postTitle = clone.querySelector(".title-text");
   postTitle.innerText = postData.title;
@@ -48,47 +25,36 @@ export function postTemplate(postData) {
   const tagsText = clone.querySelector(".tags-text");
   tagsText.innerText = postData.tags;
 
-  // console.log(postData.tags);
-
-  const avatarImg = clone.querySelector("#avatar-img");
-  if (postData.author.avatar) {
-    avatarImg.src = postData.author.avatar;
-  } else {
-    avatarImg.src =
-      "https://images.unsplash.com/photo-1634324173063-909962333bca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80";
+  if (path === "/posts/" || "/posts/index.html") {
+    const avatarImg = clone.querySelector("#avatar-img");
+    if (postData.author.avatar) {
+      avatarImg.src = postData.author.avatar;
+    } else {
+      avatarImg.src =
+        "https://images.unsplash.com/photo-1634324173063-909962333bca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2100&q=80";
+    }
+    const authorName = clone.querySelector("#username");
+    authorName.innerText = postData.author.name;
+    authorName.href = `/profile/?name=${postData.author.name}`;
   }
-
-  const authorName = clone.querySelector("#username");
-  authorName.innerText = postData.author.name;
-  authorName.href = `/profile/?name=${postData.author.name}`;
 
   const commentPost = clone.querySelector(".comment-post");
   commentPost.href = `/post/comment/?id=${postData.id}`;
 
-  const updatePost = clone.querySelector(".update-post");
-  updatePost.href = `/post/?id=${postData.id}`;
-
   postContainer.append(clone);
 
-  // console.log(postData);
   return clone;
 }
 
-// export function renderPostTemplate(postData, parent) {
-// console.log(parent);
-// parent.append(postTemplate(postData));
-// }
-
-export function renderPostTemplates(postDataList, parent) {
-  // console.log(parent);
-  const postElements = postDataList.map(postTemplate);
-  parent.append(...postElements);
+export function renderFilteredPostTemplates(postDataList, parent) {
+  const filteredPostElements = postDataList.map(postTemplate);
+  parent.append(...filteredPostElements);
 }
 
-async function testTemplates() {
-  const posts = await getPosts();
+async function FilteredTemplates() {
+  const filteredposts = await getFilteredPosts();
   const container = document.querySelector("#post-wall");
-  renderPostTemplates(posts, container);
+  renderFilteredPostTemplates(filteredposts, container);
 }
 
-testTemplates();
+FilteredTemplates();
