@@ -5,6 +5,9 @@ import { updatePostFormListener } from "./api/handlers/updatePost.mjs";
 import { removePostListener } from "./api/handlers/deletePost.mjs";
 import { setUpdateProfile } from "./api/handlers/updateProfile.mjs";
 import { commentPostFormListener } from "./api/handlers/commentPost.mjs";
+
+import { searchPosts } from "./api/handlers/searchPosts.mjs";
+
 import { profileTemplate } from "./templates/profile.mjs";
 import { profileFetch } from "./templates/profile.mjs";
 // import * as templates from "./templates/index.mjs";
@@ -26,12 +29,15 @@ if (path === "/" || path === "/index.html") {
   updatePostFormListener();
 } else if (path === "/posts/" || path === "/posts/index.html") {
   profilePostTemplates();
+  searchPosts();
 } else if (path === "/post/" || path === "/post/index.html") {
   removePostListener();
 } else if (path === "/profile/edit" || path === "/profile/edit/index.html") {
   setUpdateProfile();
 } else if (path === "/profile/edit/index.html") {
   updateProfileMedia();
+} else if (path === "/post/comment/" || path === "/post/comment/index.html") {
+>>>>>>> new-login
 } else if (path === "/post/comment/" || path === "/post/comment/index.html") {
   commentPostFormListener();
 } else if (path === "/profile/" || path === "/profile/index.html") {
