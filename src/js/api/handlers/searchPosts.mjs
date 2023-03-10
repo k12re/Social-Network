@@ -62,9 +62,6 @@ export async function searchPosts(query) {
         const commentPost = clone.querySelector(".comment-post");
         commentPost.href = `/post/comment/?id=${postData.id}`;
 
-        const updatePost = clone.querySelector(".update-post");
-        updatePost.href = `/post/?id=${postData.id}`;
-
         const dateText = clone.querySelector(".date-text");
         dateText.innerText = `Updated: ${postData.updated.substring(0, 10)}`;
 
