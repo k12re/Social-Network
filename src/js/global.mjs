@@ -14,6 +14,10 @@ import { load } from "./api/storage/index.mjs";
 
 const path = location.pathname;
 
+/**
+ * Determines which listeners and templates to set up based on the current URL path.
+ * @param {string} path - The current URL path.
+ */
 if (path === "/" || path === "/index.html") {
   loginFormListener();
 } else if (
@@ -42,6 +46,11 @@ if (path === "/" || path === "/index.html") {
 
 const profile = load("profile");
 
+/**
+ * Sets the profile links in the sidebar and navigation bar if they exist and the path is the homepage.
+ * @param {string} path - The current URL path.
+ * @param {Object} profile - The profile data to use for the links.
+ */
 const myProfileA = document.querySelector(".myProfileAside");
 const myProfileB = document.querySelector(".myProfileNav");
 if (myProfileA && myProfileB && (path === "/" || "/index.html")) {
