@@ -1,6 +1,7 @@
 import * as storage from "./storage/index.mjs";
 
 /**
+
  * Generate headers for an HTTP request with an optional content type and authorization token.
  * @param {string} contentType - The content type of the request body, if any.
  * @returns {Object} The headers object for the HTTP request.
