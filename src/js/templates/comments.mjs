@@ -10,33 +10,34 @@ const commentContainer = document.querySelector("#comment-container");
  * @param {object} postData - The post data object.
  * @param {string} postData.title - The title of the post.
  * @param {string} postData.body - The body text of the post.
- * @param {string} postData.media - The URL of the post media, if any.
+ * @param {string} [postData.media] - The URL of the post media, if any.
  * @param {string} postData.updated - The date the post was last updated.
  * @param {string[]} postData.tags - An array of tags associated with the post.
  * @param {object} postData.author - The author of the post.
  * @param {string} postData.author.name - The name of the author.
- * @param {string} postData.author.avatar - The URL of the author's avatar image, if any.
+ * @param {string} [postData.author.avatar] - The URL of the author's avatar image, if any.
  * @returns {HTMLElement} - The cloned post template element.
  */
 export function commentPostTemplate(postData) {
+  const { title, body, media, tags } = postData;
   // Get the post template element and clone it
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
 
   // Set the post title
   const postTitle = clone.querySelector(".title-text");
-  postTitle.innerText = postData.title;
+  postTitle.innerText = title;
 
   // Set the post media (if provided)
-  if (postData.media) {
+  if (media) {
     const img = clone.querySelector("img");
-    img.src = postData.media;
-    img.alt = postData.title;
+    img.src = media;
+    img.alt = title;
   }
 
   // Set the post body
   const bodyText = clone.querySelector(".body-text");
-  bodyText.innerText = postData.body;
+  bodyText.innerText = body;
 
   // Set the post date
   const dateText = clone.querySelector(".date-text");
@@ -44,7 +45,7 @@ export function commentPostTemplate(postData) {
 
   // Set the post tags
   const tagsText = clone.querySelector(".tags-text");
-  tagsText.innerText = postData.tags;
+  tagsText.innerText = tags;
 
   // Set the author name and avatar image, or select general image if not provided
   const avatarImg = clone.querySelector("#avatar-img");

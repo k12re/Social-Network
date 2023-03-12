@@ -7,34 +7,36 @@ const path = location.pathname;
 Creates a template for a post using the provided post data and returns a clone of the template.
 *@param {Object} postData - The data of the post to be displayed in the template.
 *@param {string} postData.title - The title of the post.
-*@param {string} postData.media - The URL of the media associated with the post.
+*@param {string}[postData.media] - The URL of the media associated with the post.
 *@param {string} postData.body - The body text of the post.
 *@param {string} postData.updated - The date the post was last updated.
 *@param {string} postData.tags - The tags associated with the post.
 *@param {Object} postData.author - The author of the post.
 *@param {string} postData.author.name - The name of the author.
-*@param {string} postData.author.avatar - The URL of the author's avatar.
+*@param {string} [postData.author.avatar] - The URL of the author's avatar.
 *@returns {Node} A clone of the post template with the provided post data.
 */
 export function postTemplate(postData) {
+  const { title, body, media, tags } = postData;
+
   // Get the post template element and clone it
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
 
   // Set the post title
   const postTitle = clone.querySelector(".title-text");
-  postTitle.innerText = postData.title;
+  postTitle.innerText = title;
 
   // Set the post media (if provided)
-  if (postData.media) {
+  if (media) {
     const img = clone.querySelector("img");
-    img.src = postData.media;
-    img.alt = postData.title;
+    img.src = media;
+    img.alt = title;
   }
 
   // Set the post body
   const bodyText = clone.querySelector(".body-text");
-  bodyText.innerText = postData.body;
+  bodyText.innerText = body;
 
   // Set the post date
   const dateText = clone.querySelector(".date-text");
@@ -42,7 +44,7 @@ export function postTemplate(postData) {
 
   // Set the post tags
   const tagsText = clone.querySelector(".tags-text");
-  tagsText.innerText = postData.tags;
+  tagsText.innerText = tags;
 
   // Set the author name and avatar image, or select general image if not provided
   if (path === "/posts/" || "/posts/index.html") {

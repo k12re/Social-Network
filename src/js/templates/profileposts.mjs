@@ -14,24 +14,25 @@ const profileContainer = document.querySelector("#profile-post-wall");
  * @returns {Element} The newly created post element.
  */
 export function postTemplate(postData) {
+  const { title, body, media, tags } = postData;
   // Get the post template element and clone it
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
 
   // Set the post title
   const postTitle = clone.querySelector(".title-text");
-  postTitle.innerText = postData.title;
+  postTitle.innerText = title;
 
   // Set the post media (if provided)
-  if (postData.media) {
+  if (media) {
     const img = clone.querySelector("img");
-    img.src = postData.media;
-    img.alt = postData.title;
+    img.src = media;
+    img.alt = title;
   }
 
   // Set the post body
   const bodyText = clone.querySelector(".body-text");
-  bodyText.innerText = postData.body;
+  bodyText.innerText = body;
 
   // Set the post date
   const dateText = clone.querySelector(".date-text");
@@ -39,7 +40,7 @@ export function postTemplate(postData) {
 
   // Set the post tags
   const tagsText = clone.querySelector(".tags-text");
-  tagsText.innerText = postData.tags;
+  tagsText.innerText = tags;
 
   // Set the post comment link
   const commentPost = clone.querySelector(".comment-post");
