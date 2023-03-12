@@ -28,6 +28,7 @@
 
 - HTML
 - CSS/SCSS
+- Bootstrap
 - Javascript
 
 ### Installing
