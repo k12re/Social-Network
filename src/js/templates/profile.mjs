@@ -39,8 +39,6 @@ export function profileTemplate(profileData) {
   // Set the following count
   const followingCount = document.querySelector(".following-count");
   followingCount.innerText = profileData._count.following;
-
-  // return profileContainer;
 }
 
 /**
@@ -57,16 +55,14 @@ export function profileDetails(profileData) {
   // Set the posts counter
   const PostsDetail = document.querySelector(".posts-details");
   PostsDetail.innerText = profileData._count.posts;
-
-  // return detailsContainer;
 }
 
-// /**
-//  * Renders the profile details into the DOM
-//  * @param {Object} profileData - The data for the profile
-//  * @param {HTMLElement} parent - The parent element to append the details to
-//  * @returns {void}
-//  */
+/**
+ * Renders the profile details into the DOM
+ * @param {Object} profileData - The data for the profile
+ * @param {HTMLElement} parent - The parent element to append the details to
+ * @returns {HTMLElement} - The rendered profile element
+ */
 function renderProfileDetails(profileData, parent) {
   if (parent) {
     return profileDetails(profileData);
@@ -97,7 +93,7 @@ if (path === "/profile/") {
  *
  * @param {Object} profileData - The data for the profile
  * @param {HTMLElement} parent - The parent element to append the profile to
- * @returns {void}
+ * @returns {HTMLElement} - The rendered profile element
  */
 function renderProfile(profileData, parent) {
   if (parent) {
