@@ -22,6 +22,10 @@ export function registerFormListener() {
 
       // Register the user using the API function
       registerUser(profile);
+
+      if (profile) {
+        alert("User has been created"), setTimeout((location.href = "/"), 1000);
+      }
     });
   }
 }
