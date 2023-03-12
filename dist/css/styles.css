@@ -11613,6 +11613,10 @@ body {
   min-height: 100vh;
 }
 
+nav {
+  z-index: 10000;
+}
+
 .login-bg {
   background-image: url(/src/assets/images/oleg-laptev-QRKJwE6yfJo-unsplash.jpg);
   background-position: center;
@@ -11622,6 +11626,19 @@ body {
   max-height: 400px;
   min-width: 100%;
   object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  aside {
+    display: none;
+  }
+  #posts-container,
+  #post-container,
+  .comment-container,
+  .edit-container {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
