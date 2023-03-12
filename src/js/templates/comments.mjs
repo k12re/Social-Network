@@ -20,6 +20,7 @@ const commentContainer = document.querySelector("#comment-container");
  */
 export function commentPostTemplate(postData) {
   const { title, body, media, tags } = postData;
+
   // Get the post template element and clone it
   const template = document.querySelector("#template-post");
   const clone = template.content.cloneNode(true);
@@ -59,7 +60,7 @@ export function commentPostTemplate(postData) {
   // Set the post author name
   const authorName = clone.querySelector("#username");
   authorName.innerText = postData.author.name;
-  authorName.href = `/profiles/${postData.author.name}?`;
+  authorName.href = `/profile/?name=${postData.author.name}`;
 
   // Append the post to the profile container
   postContainer.append(clone);

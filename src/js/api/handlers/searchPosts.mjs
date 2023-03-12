@@ -25,12 +25,12 @@ export async function searchPosts(query) {
        */
       const filteredPosts = data.filter((post) => {
         return (
-          post.title.toLowerCase().includes(query.toLowerCase()) ||
-          post.body.toLowerCase().includes(query.toLowerCase()) ||
-          post.tags.some((tag) =>
+          post.title?.toLowerCase().includes(query.toLowerCase()) ||
+          post.body?.toLowerCase().includes(query.toLowerCase()) ||
+          post.tags?.some((tag) =>
             tag.toLowerCase().includes(query.toLowerCase())
           ) ||
-          post.author.name.toLowerCase().includes(query.toLowerCase())
+          post.author.name?.toLowerCase().includes(query.toLowerCase())
         );
       });
 
