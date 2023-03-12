@@ -39,36 +39,37 @@ export function profileTemplate(profileData) {
   const followingCount = document.querySelector(".following-count");
   followingCount.innerText = profileData._count.following;
 
-  return profileContainer;
-}
-
-/**
- * Renders the profile details of the user
- * @param {Object} profileData - The data for the profile details
- * @param {HTMLElement} parent - The parent element to append the details to
- * @returns {void}
- */
-export function profileDetails(profileData) {
-  //Set the email details
   const emailDetail = document.querySelector(".email-details");
   emailDetail.innerText = profileData.email;
 
   // Set the posts counter
   const PostsDetail = document.querySelector(".posts-details");
   PostsDetail.innerText = profileData._count.posts;
+
+  return profileContainer;
 }
 
-/**
- * Renders the profile details into the DOM
- * @param {Object} profileData - The data for the profile
- * @param {HTMLElement} parent - The parent element to append the details to
- * @returns {void}
- */
-function renderProfileDetails(profileData, parent) {
-  if (parent) {
-    parent.append(profileDetails(profileData));
-  }
-}
+// /**
+//  * Renders the profile details of the user
+//  * @param {Object} profileData - The data for the profile details
+//  * @param {HTMLElement} parent - The parent element to append the details to
+//  * @returns {void}
+//  */
+// export function profileDetails(profileData) {
+//   //Set the email details
+// }
+
+// /**
+//  * Renders the profile details into the DOM
+//  * @param {Object} profileData - The data for the profile
+//  * @param {HTMLElement} parent - The parent element to append the details to
+//  * @returns {void}
+//  */
+// function renderProfileDetails(profileData, parent) {
+//   if (parent) {
+//     parent.append(profileDetails(profileData));
+//   }
+// }
 
 /**
  * Fetches the profile data and renders it into the DOM
@@ -79,9 +80,9 @@ export async function profileFetch() {
   const name = urlParams.get("name");
   const profile = await getProfile(name);
 
-  // Render the profile and profile details .
+  // Render the profile.
   renderProfile(profile, profileContainer);
-  renderProfileDetails(profile, profileContainer);
+  // renderProfileDetails(profile, profileContainer);
 }
 
 // If the current path is "/profile/", fetch and render the profile
