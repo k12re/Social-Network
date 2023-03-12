@@ -1,6 +1,7 @@
 import { getProfile } from "../api/profile/read.mjs";
 
 const profileContainer = document.querySelector("#profileContainer");
+const detailsContainer = document.querySelector("#detailsContainer");
 const path = location.pathname;
 
 /**
@@ -39,6 +40,17 @@ export function profileTemplate(profileData) {
   const followingCount = document.querySelector(".following-count");
   followingCount.innerText = profileData._count.following;
 
+  // return profileContainer;
+}
+
+/**
+ * Renders the profile details of the user
+ * @param {Object} profileData - The data for the profile details
+ * @param {HTMLElement} parent - The parent element to append the details to
+ * @returns {void}
+ */
+export function profileDetails(profileData) {
+  //Set the email details
   const emailDetail = document.querySelector(".email-details");
   emailDetail.innerText = profileData.email;
 
@@ -46,18 +58,8 @@ export function profileTemplate(profileData) {
   const PostsDetail = document.querySelector(".posts-details");
   PostsDetail.innerText = profileData._count.posts;
 
-  return profileContainer;
+  // return detailsContainer;
 }
-
-// /**
-//  * Renders the profile details of the user
-//  * @param {Object} profileData - The data for the profile details
-//  * @param {HTMLElement} parent - The parent element to append the details to
-//  * @returns {void}
-//  */
-// export function profileDetails(profileData) {
-//   //Set the email details
-// }
 
 // /**
 //  * Renders the profile details into the DOM
@@ -65,11 +67,11 @@ export function profileTemplate(profileData) {
 //  * @param {HTMLElement} parent - The parent element to append the details to
 //  * @returns {void}
 //  */
-// function renderProfileDetails(profileData, parent) {
-//   if (parent) {
-//     parent.append(profileDetails(profileData));
-//   }
-// }
+function renderProfileDetails(profileData, parent) {
+  if (parent) {
+    return profileDetails(profileData);
+  }
+}
 
 /**
  * Fetches the profile data and renders it into the DOM
@@ -82,7 +84,7 @@ export async function profileFetch() {
 
   // Render the profile.
   renderProfile(profile, profileContainer);
-  // renderProfileDetails(profile, profileContainer);
+  renderProfileDetails(profile, detailsContainer);
 }
 
 // If the current path is "/profile/", fetch and render the profile
@@ -99,6 +101,6 @@ if (path === "/profile/") {
  */
 function renderProfile(profileData, parent) {
   if (parent) {
-    parent.append(profileTemplate(profileData));
+    return profileTemplate(profileData);
   }
 }
