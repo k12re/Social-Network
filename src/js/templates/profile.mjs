@@ -38,6 +38,8 @@ export function profileTemplate(profileData) {
   // Set the following count
   const followingCount = document.querySelector(".following-count");
   followingCount.innerText = profileData._count.following;
+
+  return profileContainer;
 }
 
 /**
