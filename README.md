@@ -7,14 +7,18 @@
 
 
 
--
--
--
+-A new JavaScript front-end client for an existing social media platform. The client application must be attractive and responsive, but you have an otherwise blank slate in terms of theme design language.
+
+- Using the provided API and API documentation, create a functioning user interface that allows for viewing, posting, editing and deleting social media content.
+
+- Social API routes require authorisation via JWT (JSON Web Tokens). You will need to register an account and login to access your token.
+
 
 ## Built With
 
--
--
+- HTML
+- CSS/SCSS
+- Javascript
 
 ### Installing
 
