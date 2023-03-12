@@ -14,6 +14,16 @@
 - Social API routes require authorisation via JWT (JSON Web Tokens). You will need to register an account and login to access your token.
 
 
+## Features
+
+- You can register user, and login using JWT Token
+- You can edit profile media
+- You can create post
+- You can edit post
+- You can delete post
+- You can comment on post
+- You can search by any search term and filter by tag
+
 ## Built With
 
 - HTML
