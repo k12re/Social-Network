@@ -28,7 +28,9 @@ nav {
     display: none;
   }
 
-  #posts-container {
+  #posts-container,
+  #post-container,
+  .comment-container {
     margin-left: 0;
     width: 100%;
   }

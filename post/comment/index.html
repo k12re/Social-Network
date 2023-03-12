@@ -99,13 +99,13 @@
           <hr class="col-8" />
         </aside>
         <section
-          class="col-8 offset-4"
+          class="col-8 offset-4 comment-container"
           style="max-width: 540px"
         >
           <h3>Comment on post</h3>
-            <article id="post-container" class="mt-4">
-              <!-- Post to comment will be rendered here -->
-            </article>
+          <article id="post-container" class="mt-4">
+            <!-- Post to comment will be rendered here -->
+          </article>
           <form id="commentPost">
             <div class="mb-3">
               <label for="post-body" class="form-label"></label>
@@ -124,9 +124,8 @@
             </div>
           </form>
         </section>
-        <section class="col-8 offset-4">
-            <h3>Comments</h3>
-          </article>
+        <section class="col-8 offset-4 comment-container">
+          <h3>Comments</h3>
           <article id="comment-container" class="mt-4">
             <!-- Comments will be rendered here -->
           </article>
@@ -158,7 +157,11 @@
                 <div>
                   <img class="rounded col-1" id="post-img" />
                   <span>
-                    <img class="rounded-circle col-1" id="avatar-img" style="width: 20px; height: 20px"/>
+                    <img
+                      class="rounded-circle col-1"
+                      id="avatar-img"
+                      style="width: 20px; height: 20px"
+                    />
                     <a id="username" class="btn link-primary text-muted"></a>
 
                     <i
@@ -172,18 +175,21 @@
         </div>
       </div>
     </template>
-    <template  id="template-comment">
-        <div class="card mb-3" style="max-width: 540px">
-            <div class="row g-0">
-                <div class="col-md-10">
-                    <span>
-                    <img class="rounded-circle col-1 avatar-img" style="width: 20px; height: 20px"/>
-                    <span id="username"></span>
-                    <p class="card-text body-text mt-2"></p>
-                    </span>
-                </div>
-            </div>
+    <template id="template-comment">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-10">
+            <span>
+              <img
+                class="rounded-circle col-1 avatar-img"
+                style="width: 20px; height: 20px"
+              />
+              <span id="username"></span>
+              <p class="card-text body-text mt-2"></p>
+            </span>
+          </div>
         </div>
+      </div>
     </template>
   </body>
 </html>
