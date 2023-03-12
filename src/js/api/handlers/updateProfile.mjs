@@ -22,10 +22,10 @@ export async function setUpdateProfile() {
     button.disabled = true;
 
     // Get the user's full profile data and pre-fill the form fields for the banner and avatar
-    const profile = await getProfile(name);
+    const { banner, avatar } = await getProfile(name);
 
-    form.banner.value = profile.banner;
-    form.avatar.value = profile.avatar;
+    form.banner.value = banner;
+    form.avatar.value = avatar;
 
     // Re-enable the form submit button
     button.disabled = false;

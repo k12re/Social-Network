@@ -13,13 +13,13 @@ export async function updatePostFormListener() {
 
   if (form) {
     // Get the post data to pre-fill the form
-    const post = await getPost(postId);
+    const { title, body, media, tags } = await getPost(postId);
 
     // Pre-fill the form fields with the post data
-    form.title.value = post.title;
-    form.body.value = post.body;
-    form.media.value = post.media;
-    form.tags.value = post.tags;
+    form.title.value = title;
+    form.body.value = body;
+    form.media.value = media;
+    form.tags.value = tags;
 
     // Attach a submit event listener to the form
     form.addEventListener("submit", (event) => {
