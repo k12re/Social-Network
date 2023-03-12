@@ -23,6 +23,7 @@ export function registerFormListener() {
       // Register the user using the API function
       registerUser(profile);
 
+      //Check if profile data exists, and redirect to login page
       if (profile) {
         alert("User has been created"), setTimeout((location.href = "/"), 1000);
       }
