@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <!-- <script
+      src="/src/js/api/handlers/registerFormListener.mjs"
+      type="module"
+      defer
+    ></script> -->
+    <script src="/src/js/api/auth/register.mjs" type="module" defer></script>
+    <script src="/src/js/global.mjs" type="module" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <title>Megaphone Social | Register Page</title>
+  </head>
+  <body class="bg-primary login-bg">
+    <main class="justify-content-center align-items-center mw-100">
+      <section class="container">
+        <div
+          class="row align-items-center p-0 position-absolute top-50 start-50 translate-middle w-75"
+        >
+          <h1
+            class="col text-center text-md-start h1 mb-5 fw-bold text-capitalized col-sm-12 col-md-8 position-relative"
+          >
+            Megaphone Social
+          </h1>
+          <h2 class="col-md-6 position-absolute top-50 start-0 pt-4">
+            The place to be to announce your life...
+          </h2>
+          <form
+            id="registerForm"
+            class="needs-validation col-sm-12 col-md-4 p-4 position-relative shadow p-3 mb-5 bg-body-tertiary rounded"
+            validate
+          >
+            <div class="mb-3">
+              <h3>Register</h3>
+              <label for="validationName1" class="form-label">Name</label>
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                id="validationName1"
+                aria-describedby="nameHelp"
+                required
+              />
+              <label for="validationEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                id="validationEmail1"
+                aria-describedby="emailHelp"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                required
+              />
+            </div>
+            <div class="mb-3 form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Remember me</label
+              >
+            </div>
+            <button type="submit" class="btn btn-primary col-12">
+              Register
+            </button>
+            <p class="mt-4 mb-0">Already a member?</p>
+            <a href="/index.html" class="link-primary">Click here</a>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

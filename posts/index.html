@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+      defer></script>
+    <script src="../src/js/global.mjs" type="module" defer></script>
+    <script
+      src="../src/js/api/handlers/tagsFilter.mjs"
+      type="module"
+      defer></script>
+    <title>Megaphone Social | Posts Page</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/posts/index.html">MegaPhone</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active myProfileNav" aria-current="page"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="logout"
+                aria-current="page"
+                href="/index.html"
+                >Logout</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex" role="search" id="searchForm">
+            <input
+              class="form-control me-2"
+              id="searchInput"
+              type="search"
+              name="searchInput"
+              placeholder="Search"
+              aria-label="Search" />
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <ul id="searchResults"></ul>
+
+    <main class="container mt-5">
+      <section class="row">
+        <aside class="col-4 ms-3 mt-5 pt-5 fixed-top">
+          <div class="btn">
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none myProfileAside"
+              ><i class="bi bi-person-circle link-primary pe-4"></i>Profile</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <a class="ps-2 h3 link-primary text-black text-decoration-none"
+              ><i class="bi bi-people-fill link-primary pe-4"></i>Following</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none"
+              href="/profile/edit/index.html"
+              ><i class="bi bi-gear link-primary pe-4"></i>Settings</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none"
+              href="/index.html"
+              ><i class="bi bi-box-arrow-right link-primary pe-4"></i>Logout</a
+            >
+          </div>
+          <hr class="col-8" />
+        </aside>
+        <section class="col-8 offset-4" id="posts-container">
+          <h3>Create post</h3>
+          <form id="createPost" style="max-width: 540px">
+            <div>
+              <label for="post-title" class="form-label"></label>
+              <input
+                name="title"
+                type="text"
+                class="form-control"
+                id="post-title"
+                placeholder="Post title..." />
+            </div>
+            <div class="mb-3">
+              <label for="post-body" class="form-label"></label>
+              <textarea
+                name="body"
+                class="form-control mb-3"
+                id="post-body"
+                rows="3"
+                placeholder="Write post content..."></textarea>
+              <div class="d-flex space-between">
+                <label for="media-url" class="form-label"></label>
+                <input
+                  name="media"
+                  type="url"
+                  class="form-control me-4"
+                  id="media-url"
+                  placeholder="Media url..." />
+                <label for="tags" class="form-label"></label>
+                <input
+                  name="tags"
+                  type="text"
+                  class="form-control me-4"
+                  id="tags"
+                  placeholder="Tags..." />
+                <button type="submit" class="btn btn-primary col-4">
+                  Create Post
+                </button>
+              </div>
+            </div>
+          </form>
+          <span
+            class="d-flex justify-content-between mb-3"
+            style="max-width: 540px"
+            ><h3>Wall posts</h3>
+            <!-- Posts will be rendered here -->
+            <div class="dropdown">
+              <button
+                class="btn link-primary text-muted dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Filter
+              </button>
+              <ul class="dropdown-menu">
+                <li class="me-3">
+                  <form id="tags-filter">
+                    <label for="tags-filter" class="form-label"></label>
+                    <input
+                      name="tags"
+                      type="text"
+                      class="form-control mx-2 mb-2"
+                      id="tag-query"
+                      placeholder="Search Tags..." />
+                    <button type="submit" class="btn btn-primary w-100 mx-2">
+                      Search
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </span>
+          <article id="post-wall" class="mt-4"></article>
+        </section>
+      </section>
+    </main>
+    <template id="template-post">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded h-100 object-fit-cover"
+              alt="" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title title-text"></h5>
+              <p class="card-text body-text"></p>
+              <p class="card-text">
+                <small class="text-muted date-text"></small>
+              </p>
+              <p class="card-text tags">
+                Tags:
+                <small class="text-muted tags-text"></small>
+              </p>
+              <div class="d-flex">
+                <div>
+                  <img class="rounded col-1" id="post-img" />
+                  <span>
+                    <img
+                      class="rounded-circle col-1"
+                      id="avatar-img"
+                      style="width: 20px; height: 20px" />
+                    <a id="username" class="btn link-primary text-muted"></a>
+                    <a
+                      class="bi bi-chat-left btn link-primary text-muted comment-post"></a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>

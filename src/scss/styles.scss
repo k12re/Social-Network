@@ -1,0 +1,38 @@
+@import "variables";
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@300;700;900&display=swap");
+
+body {
+  min-height: 100vh;
+}
+
+nav {
+  z-index: 10000;
+}
+
+.login-bg {
+  background-image: url(/src/assets/images/oleg-laptev-QRKJwE6yfJo-unsplash.jpg);
+  background-position: center;
+}
+
+.profile-header {
+  max-height: 400px;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  aside {
+    display: none;
+  }
+
+  #posts-container,
+  #post-container,
+  .comment-container,
+  .edit-container {
+    margin-left: 0;
+    width: 100%;
+  }
+}

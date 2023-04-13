@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="/src/js/templates/comments.mjs" type="module" defer></script>
+    <script src="/src/js/global.mjs" type="module" defer></script>
+    <title>Megaphone Social | Post Page</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/posts/index.html">MegaPhone</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active myProfileNav"
+                aria-current="page"
+                href="/profile/index.html"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index.html"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="container mt-5">
+      <section class="row">
+        <aside class="col-4 ms-3 mt-5 pt-5 fixed-top">
+          <div class="btn">
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none myProfileAside"
+              ><i class="bi bi-person-circle link-primary pe-4"></i>Profile</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <a class="ps-2 h3 link-primary text-black text-decoration-none"
+              ><i class="bi bi-people-fill link-primary pe-4"></i>Following</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none"
+              href="/profile/edit/index.html"
+              ><i class="bi bi-gear link-primary pe-4"></i>Settings</a
+            >
+          </div>
+          <hr class="col-8" />
+          <div class="btn">
+            <a
+              class="ps-2 h3 link-primary text-black text-decoration-none"
+              href="/index.html"
+              ><i class="bi bi-box-arrow-right link-primary pe-4"></i>Logout</a
+            >
+          </div>
+          <hr class="col-8" />
+        </aside>
+        <section
+          class="col-8 offset-4 comment-container"
+          style="max-width: 540px"
+        >
+          <h3>Comment on post</h3>
+          <article id="post-container" class="mt-4">
+            <!-- Post to comment will be rendered here -->
+          </article>
+          <form id="commentPost">
+            <div class="mb-3">
+              <label for="post-body" class="form-label"></label>
+              <textarea
+                name="body"
+                class="form-control mb-3"
+                id="post-body"
+                rows="3"
+                placeholder="Write your comment..."
+              ></textarea>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary col-4">
+                  Comment
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <section class="col-8 offset-4 comment-container">
+          <h3>Comments</h3>
+          <article id="comment-container" class="mt-4">
+            <!-- Comments will be rendered here -->
+          </article>
+        </section>
+      </section>
+    </main>
+    <template id="template-post">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src=""
+              class="img-fluid rounded h-100 object-fit-cover"
+              alt=""
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title title-text"></h5>
+              <p class="card-text body-text"></p>
+              <p class="card-text">
+                <small class="text-muted date-text"></small>
+              </p>
+              <p class="card-text tags">
+                Tags:
+                <small class="text-muted tags-text"></small>
+              </p>
+              <div class="d-flex">
+                <div>
+                  <img class="rounded col-1" id="post-img" />
+                  <span>
+                    <img
+                      class="rounded-circle col-1"
+                      id="avatar-img"
+                      style="width: 20px; height: 20px"
+                    />
+                    <a id="username" class="btn link-primary text-muted"></a>
+
+                    <i
+                      class="bi bi-heart btn link-primary text-muted react-heart"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template id="template-comment">
+      <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-0">
+          <div class="col-md-10">
+            <span>
+              <img
+                class="rounded-circle col-1 avatar-img"
+                style="width: 20px; height: 20px"
+              />
+              <span id="username"></span>
+              <p class="card-text body-text mt-2"></p>
+            </span>
+          </div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
